@@ -1,0 +1,27 @@
+.navbar {
+  width: 82%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: $color-primario;
+
+  a {
+    margin-right: 25px;
+    font-size: 15px;
+  }
+
+  a:last-child {
+    margin-right: 0;
+  }
+
+  a:hover {
+    border-bottom: 2px solid $color-secundario;
+  }
+}
