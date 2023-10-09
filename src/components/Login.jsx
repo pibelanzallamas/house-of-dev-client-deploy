@@ -3,8 +3,6 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setUser } from "../state/userState";
 import { useNavigate, Link } from "react-router-dom";
-// import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
-// import jwt_decode from "jwt-decode";
 import { alerts } from "../utils/alerts";
 
 function Login() {
@@ -17,9 +15,11 @@ function Login() {
     e.preventDefault();
 
     axios
-      .post("/api/users/login", {
+      .post("https://house-of-dev.onrender.com/api/users/login", {
         email: email.value,
         password: password.value,
+        withCredentials: true,
+        credentials: "include",
       })
       .then((payload) => {
         alerts("Aloha!", `Welcome ${payload.data.name} 🏝`, "success");

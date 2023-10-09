@@ -19,7 +19,10 @@ function Navbar() {
 
   useEffect(() => {
     axios
-      .post("/api/users/me")
+      .post("https://house-of-dev.onrender.com/api/users/me", {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((cok) => dispatch(setUser(cok.data)))
       .catch((err) => console.log(err));
   }, [dispatch]);
@@ -35,7 +38,10 @@ function Navbar() {
       admin: null,
     };
     axios
-      .post("/api/users/logout")
+      .post("https://house-of-dev.onrender.com/api/users/logout", {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then(() => {
         dispatch(setUser(initialState));
         alerts("See ya!", `Goodbye ${user.name} 🚀`, "success");

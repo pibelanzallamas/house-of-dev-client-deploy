@@ -79,7 +79,7 @@ function Property() {
 
   function handleConfirm() {
     axios
-      .put(`/api/properties/mod/${pid}`, {
+      .put(`https://house-of-dev.onrender.com/api/properties/mod/${pid}`, {
         name,
         address,
         country,
@@ -92,6 +92,8 @@ function Property() {
         price,
         categories,
         disponibility,
+        withCredentials: true,
+        credentials: "include",
       })
       .then((mod) => {
         if (mod.data[0] === 1) {
@@ -109,7 +111,10 @@ function Property() {
 
   function handleConfirm2() {
     axios
-      .delete(`/api/properties/${pid}`)
+      .delete(`https://house-of-dev.onrender.com/api/properties/${pid}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then(() => {
         alerts("Ok!", "Propiedad eliminada 👍", "success");
         navigate("/home");
@@ -122,7 +127,10 @@ function Property() {
 
   function handleConfirm3() {
     axios
-      .delete(`/api/reviews/${rId}`)
+      .delete(`https://house-of-dev.onrender.com/api/reviews/${rId}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then(() => {
         alerts("Ok!", "La review se eliminó 👍", "success");
         setEstado(!estado);
@@ -136,7 +144,10 @@ function Property() {
   //get propiedad
   useEffect(() => {
     axios
-      .get(`/api/properties/${pid}`)
+      .get(`https://house-of-dev.onrender.com/api/properties/${pid}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((prop) => {
         setName(prop.data.name);
         setAddress(prop.data.address);
@@ -156,16 +167,26 @@ function Property() {
 
   //find fav
   useEffect(() => {
-    axios.get("/api/favorites/find", { params: { uid, pid } }).then((fav) => {
-      if (fav.data.pid) setLike(true);
-      else setLike(false);
-    });
+    axios
+      .get("https://house-of-dev.onrender.com/api/favorites/find", {
+        params: { uid, pid },
+        withCredentials: true,
+        credentials: "include",
+      })
+      .then((fav) => {
+        if (fav.data.pid) setLike(true);
+        else setLike(false);
+      });
   }, [estado, user, uid, pid]);
 
   //find appo
   useEffect(() => {
     axios
-      .get("/api/appointments/find/one", { params: { uid, pid } })
+      .get("https://house-of-dev.onrender.com/api/appointments/find/one", {
+        params: { uid, pid },
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((data) => {
         if (data.data.pid) setDate(true);
         else setDate(false);
@@ -206,7 +227,11 @@ function Property() {
   //likea
   function hanldeLike() {
     axios
-      .post("/api/favorites/register", { data: { uid, pid } })
+      .post("https://house-of-dev.onrender.com/api/favorites/register", {
+        data: { uid, pid },
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((add) => {
         if (!uid) {
           alerts("Ojo!", "Necesitas estar logueado 💻", "warning");
@@ -228,7 +253,11 @@ function Property() {
   //dislikea
   function hanldeDislike() {
     axios
-      .delete("/api/favorites/delete", { data: { uid, pid } })
+      .delete("https://house-of-dev.onrender.com/api/favorites/delete", {
+        data: { uid, pid },
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((del) => {
         if (del.data === "OK") {
           alerts("Byebye!", "La propiedad se borro de favoritos 😵", "warning");
@@ -249,7 +278,10 @@ function Property() {
   //get reviews
   useEffect(() => {
     axios
-      .get(`/api/reviews/${pid}`)
+      .get(`https://house-of-dev.onrender.com/api/reviews/${pid}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((rev) => setReviews(rev.data))
       .catch((err) => console.log(err));
   }, [estado, pid]);
@@ -259,11 +291,13 @@ function Property() {
     e.preventDefault();
 
     axios
-      .post("/api/reviews/register", {
+      .post("https://house-of-dev.onrender.com/api/reviews/register", {
         pid,
         uid,
         rating: valoracion.value,
         review: comentario.value,
+        withCredentials: true,
+        credentials: "include",
       })
       .then((rev) => {
         if (rev.data[1]) {

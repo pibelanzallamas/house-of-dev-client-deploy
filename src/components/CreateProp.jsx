@@ -36,7 +36,7 @@ function Properties() {
 
   const handleConfirm = () => {
     axios
-      .post("/api/properties/register", {
+      .post("https://house-of-dev.onrender.com/api/properties/register", {
         name: name.value,
         address: address.value,
         country: country.value,
@@ -49,9 +49,10 @@ function Properties() {
         disponibility: disponibility.value,
         images: images.value,
         price: price.value,
+        withCredentials: true,
+        credentials: "include",
       })
       .then((prop) => {
-        console.log(prop);
         if (prop.data[1]) {
           alerts("Vamos!", "La propiedad se creó con exito 🏠", "success");
           navigate("/home");

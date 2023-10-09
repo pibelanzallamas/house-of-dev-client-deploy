@@ -14,7 +14,10 @@ function Users() {
   //get all user
   useEffect(() => {
     axios
-      .get("/api/users/all")
+      .get("https://house-of-dev.onrender.com/api/users/all", {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((all) => setUsers(all.data))
       .catch((err) => console.log(err));
   }, [estado]);
@@ -37,19 +40,30 @@ function Users() {
   function confirmAdmin() {
     const { id, name } = data;
 
-    axios.put(`/api/users/${id}`, { admin: true }).then(() => {
-      setEstado(!estado);
-      alerts("Ok!", `El usuario ${name} ahora es admin 💼`, "success");
-    });
+    axios
+      .put(`https://house-of-dev.onrender.com/api/users/${id}`, {
+        admin: true,
+        withCredentials: true,
+        credentials: "include",
+      })
+      .then(() => {
+        setEstado(!estado);
+        alerts("Ok!", `El usuario ${name} ahora es admin 💼`, "success");
+      });
     closeWindow();
   }
 
   function confirmDelete() {
     const { id, name } = data;
-    axios.delete(`/api/users/${id}`).then(() => {
-      setEstado(!estado);
-      alerts("Ok!", `El usuario ${name} ha sido eliminado 😵`, "success");
-    });
+    axios
+      .delete(`https://house-of-dev.onrender.com/api/users/${id}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
+      .then(() => {
+        setEstado(!estado);
+        alerts("Ok!", `El usuario ${name} ha sido eliminado 😵`, "success");
+      });
     closeWindow2();
   }
 

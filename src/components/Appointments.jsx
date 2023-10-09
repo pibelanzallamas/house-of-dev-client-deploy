@@ -14,7 +14,10 @@ function Appointments() {
 
   useEffect(() => {
     axios
-      .get("/api/appointments/all")
+      .get("https://house-of-dev.onrender.com/api/appointments/all", {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((data) => {
         setAppointments(data.data);
       })
@@ -23,7 +26,10 @@ function Appointments() {
 
   function sendEmail(email) {
     axios
-      .post(`/api/users/delete/${email}`)
+      .post(`https://house-of-dev.onrender.com/api/users/delete/${email}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then(() => alerts("Exito!", "Mail de cencelación enviado ✉️", "success"))
       .catch(() => alerts("Rayos!", "Mail no pudo enviarse ☠️", "warning"));
   }
@@ -44,7 +50,10 @@ function Appointments() {
 
   function handleConfirm() {
     axios
-      .delete(`/api/appointments/${aid}`)
+      .delete(`https://house-of-dev.onrender.com/api/appointments/${aid}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then(() => {
         alerts("Ok!", "Cita cancelada! 🤝", "success");
         sendEmail(uEmail);

@@ -26,7 +26,10 @@ function User() {
   //get user
   useEffect(() => {
     axios
-      .get(`/api/users/${uid}`)
+      .get(`https://house-of-dev.onrender.com/api/users/${uid}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((user) => {
         setName(user.data.name);
         setEmail(user.data.email);
@@ -47,7 +50,13 @@ function User() {
   //mod user
   const handleConfirm = () => {
     axios
-      .put(`/api/users/${user.id}`, { name, email, telephone })
+      .put(`https://house-of-dev.onrender.com/api/users/${user.id}`, {
+        name,
+        email,
+        telephone,
+        withCredentials: true,
+        credentials: "include",
+      })
       .then(() => {
         alerts("Ok!", "Modificó su perfil 😎", "success");
         setEstado(!estado);
@@ -59,7 +68,10 @@ function User() {
   //get favs de user
   useEffect(() => {
     axios
-      .get(`/api/favorites/${user.id}`)
+      .get(`https://house-of-dev.onrender.com/api/favorites/${user.id}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((res) => setFavoritos(res.data))
       .catch((err) => console.log(err));
   }, [estado, user]);
@@ -67,7 +79,10 @@ function User() {
   //get citas
   useEffect(() => {
     axios
-      .get(`/api/appointments/${uid}`)
+      .get(`https://house-of-dev.onrender.com/api/appointments/${uid}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((all) => setCitas(all.data))
       .catch((err) => console.log(err));
   }, [estado, uid]);

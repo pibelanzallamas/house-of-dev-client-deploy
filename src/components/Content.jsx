@@ -22,7 +22,10 @@ function Content() {
   //get all properties ordenadas
   useEffect(() => {
     axios
-      .get(`/api/properties/all/${orden.value}`)
+      .get(
+        `https://house-of-dev.onrender.com/api/properties/all/${orden.value}`,
+        { withCredentials: true, credentials: "include" }
+      )
       .then((all) => setProperties(all.data))
       .catch((err) => console.log(err));
   }, [orden.value]);

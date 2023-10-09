@@ -27,7 +27,10 @@ function CreateAppo() {
   //get property
   useEffect(() => {
     axios
-      .get(`/api/properties/${pid}`)
+      .get(`https://house-of-dev.onrender.com/api/properties/${pid}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((data) => {
         setProperty(data.data);
       })
@@ -44,7 +47,13 @@ function CreateAppo() {
 
   const handleConfirm = () => {
     axios
-      .post("/api/appointments/register", { uid, pid, date: startDate })
+      .post("https://house-of-dev.onrender.com/api/appointments/register", {
+        uid,
+        pid,
+        date: startDate,
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((data) => {
         if (data.data[1]) {
           handleClose();
@@ -66,7 +75,11 @@ function CreateAppo() {
   //check Date
   useEffect(() => {
     axios
-      .get("/api/appointments/find/one", { params: { uid, pid } })
+      .get("https://house-of-dev.onrender.com/api/appointments/find/one", {
+        params: { uid, pid },
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((data) => {
         if (data.data.pid) {
           setDate(true);
@@ -79,7 +92,10 @@ function CreateAppo() {
   //sent email
   function sendEmail(date, place) {
     axios
-      .post(`/api/users/register/${user.email}`, { date, place })
+      .post(
+        `https://house-of-dev.onrender.com/api/users/register/${user.email}`,
+        { date, place, withCredentials: true, credentials: "include" }
+      )
       .then(() =>
         alerts("Exito!", "Mail de confirmación enviado ✉️", "success")
       )

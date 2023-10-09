@@ -9,7 +9,10 @@ function Properties() {
   //get properties
   useEffect(() => {
     axios
-      .get("/api/properties/all")
+      .get("https://house-of-dev.onrender.com/api/properties/all", {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((all) => setProperies(all.data))
       .catch((err) => console.log(err));
   }, []);

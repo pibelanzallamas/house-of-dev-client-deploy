@@ -16,11 +16,13 @@ function Register() {
     e.preventDefault();
 
     axios
-      .post(`/api/users/register`, {
+      .post(`https://house-of-dev.onrender.com/api/users/register`, {
         email: email.value,
         password: password.value,
         name: name.value,
         telephone: telephone.value,
+        withCredentials: true,
+        credentials: "include",
       })
       .then((user) => {
         if (user.data[1]) {
