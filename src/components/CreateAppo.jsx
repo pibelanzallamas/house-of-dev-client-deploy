@@ -27,7 +27,7 @@ function CreateAppo() {
   //get property
   useEffect(() => {
     axios
-      .get(`https://house-of-dev.onrender.com/api/properties/${pid}`, {
+      .get(`https://house-of-dev-server.onrender.com/api/properties/${pid}`, {
         withCredentials: true,
         credentials: "include",
       })
@@ -47,13 +47,16 @@ function CreateAppo() {
 
   const handleConfirm = () => {
     axios
-      .post("https://house-of-dev.onrender.com/api/appointments/register", {
-        uid,
-        pid,
-        date: startDate,
-        withCredentials: true,
-        credentials: "include",
-      })
+      .post(
+        "https://house-of-dev-server.onrender.com/api/appointments/register",
+        {
+          uid,
+          pid,
+          date: startDate,
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then((data) => {
         if (data.data[1]) {
           handleClose();
@@ -75,11 +78,14 @@ function CreateAppo() {
   //check Date
   useEffect(() => {
     axios
-      .get("https://house-of-dev.onrender.com/api/appointments/find/one", {
-        params: { uid, pid },
-        withCredentials: true,
-        credentials: "include",
-      })
+      .get(
+        "https://house-of-dev-server.onrender.com/api/appointments/find/one",
+        {
+          params: { uid, pid },
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then((data) => {
         if (data.data.pid) {
           setDate(true);
@@ -93,7 +99,7 @@ function CreateAppo() {
   function sendEmail(date, place) {
     axios
       .post(
-        `https://house-of-dev.onrender.com/api/users/register/${user.email}`,
+        `https://house-of-dev-server.onrender.com/api/users/register/${user.email}`,
         { date, place, withCredentials: true, credentials: "include" }
       )
       .then(() =>
@@ -103,7 +109,6 @@ function CreateAppo() {
   }
 
   //create appointment
-
   function handleChange() {
     navigate(`/users/${uid}`);
   }

@@ -23,7 +23,7 @@ function Content() {
   useEffect(() => {
     axios
       .get(
-        `https://house-of-dev.onrender.com/api/properties/all/${orden.value}`,
+        `https://house-of-dev-server.onrender.com/api/properties/all/${orden.value}`,
         { withCredentials: true, credentials: "include" }
       )
       .then((all) => setProperties(all.data))

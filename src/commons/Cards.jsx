@@ -14,16 +14,23 @@ function Cards({ property, modFavs }) {
 
   //check fav
   useEffect(() => {
-    axios.get("/api/favorites/find", { params: { uid, pid } }).then((fav) => {
-      if (fav.data.pid) setLike(true);
-      else setLike(false);
-    });
+    axios
+      .get("https://house-of-dev-server.onrender.com/api/favorites/find", {
+        params: { uid, pid },
+      })
+      .then((fav) => {
+        if (fav.data.pid) setLike(true);
+        else setLike(false);
+      });
   }, [like, pid, uid]);
 
   //check date
   useEffect(() => {
     axios
-      .get("/api/appointments/find/one", { params: { uid, pid } })
+      .get(
+        "https://house-of-dev-server.onrender.com/api/appointments/find/one",
+        { params: { uid, pid } }
+      )
       .then((data) => {
         if (data.data.pid) setDate(true);
         else setDate(false);
@@ -33,7 +40,9 @@ function Cards({ property, modFavs }) {
 
   function hanldeLike() {
     axios
-      .post("/api/favorites/register", { data: { uid, pid } })
+      .post("https://house-of-dev-server.onrender.com/api/favorites/register", {
+        data: { uid, pid },
+      })
       .then((add) => {
         if (!uid) {
           alerts("Ojo!", "Necesitas estar logueado 💻", "warning");
@@ -54,7 +63,9 @@ function Cards({ property, modFavs }) {
 
   function hanldeDislike() {
     axios
-      .delete("/api/favorites/delete", { data: { uid, pid } })
+      .delete("https://house-of-dev-server.onrender.com/api/favorites/delete", {
+        data: { uid, pid },
+      })
       .then((del) => {
         if (del.data === "OK") {
           alerts("Byebye!", "La propiedad se borro de favoritos 😵", "warning");

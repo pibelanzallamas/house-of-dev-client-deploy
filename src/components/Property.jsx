@@ -79,22 +79,25 @@ function Property() {
 
   function handleConfirm() {
     axios
-      .put(`https://house-of-dev.onrender.com/api/properties/mod/${pid}`, {
-        name,
-        address,
-        country,
-        city,
-        neighborhood,
-        description,
-        bathrooms,
-        rooms,
-        images,
-        price,
-        categories,
-        disponibility,
-        withCredentials: true,
-        credentials: "include",
-      })
+      .put(
+        `https://house-of-dev-server.onrender.com/api/properties/mod/${pid}`,
+        {
+          name,
+          address,
+          country,
+          city,
+          neighborhood,
+          description,
+          bathrooms,
+          rooms,
+          images,
+          price,
+          categories,
+          disponibility,
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then((mod) => {
         if (mod.data[0] === 1) {
           setEstado(!estado);
@@ -111,10 +114,13 @@ function Property() {
 
   function handleConfirm2() {
     axios
-      .delete(`https://house-of-dev.onrender.com/api/properties/${pid}`, {
-        withCredentials: true,
-        credentials: "include",
-      })
+      .delete(
+        `https://house-of-dev-server.onrender.com/api/properties/${pid}`,
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then(() => {
         alerts("Ok!", "Propiedad eliminada 👍", "success");
         navigate("/home");
@@ -127,7 +133,7 @@ function Property() {
 
   function handleConfirm3() {
     axios
-      .delete(`https://house-of-dev.onrender.com/api/reviews/${rId}`, {
+      .delete(`https://house-of-dev-server.onrender.com/api/reviews/${rId}`, {
         withCredentials: true,
         credentials: "include",
       })
@@ -144,7 +150,7 @@ function Property() {
   //get propiedad
   useEffect(() => {
     axios
-      .get(`https://house-of-dev.onrender.com/api/properties/${pid}`, {
+      .get(`https://house-of-dev-server.onrender.com/api/properties/${pid}`, {
         withCredentials: true,
         credentials: "include",
       })
@@ -168,7 +174,7 @@ function Property() {
   //find fav
   useEffect(() => {
     axios
-      .get("https://house-of-dev.onrender.com/api/favorites/find", {
+      .get("https://house-of-dev-server.onrender.com/api/favorites/find", {
         params: { uid, pid },
         withCredentials: true,
         credentials: "include",
@@ -182,11 +188,14 @@ function Property() {
   //find appo
   useEffect(() => {
     axios
-      .get("https://house-of-dev.onrender.com/api/appointments/find/one", {
-        params: { uid, pid },
-        withCredentials: true,
-        credentials: "include",
-      })
+      .get(
+        "https://house-of-dev-server.onrender.com/api/appointments/find/one",
+        {
+          params: { uid, pid },
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then((data) => {
         if (data.data.pid) setDate(true);
         else setDate(false);
@@ -227,7 +236,7 @@ function Property() {
   //likea
   function hanldeLike() {
     axios
-      .post("https://house-of-dev.onrender.com/api/favorites/register", {
+      .post("https://house-of-dev-server.onrender.com/api/favorites/register", {
         data: { uid, pid },
         withCredentials: true,
         credentials: "include",
@@ -253,7 +262,7 @@ function Property() {
   //dislikea
   function hanldeDislike() {
     axios
-      .delete("https://house-of-dev.onrender.com/api/favorites/delete", {
+      .delete("https://house-of-dev-server.onrender.com/api/favorites/delete", {
         data: { uid, pid },
         withCredentials: true,
         credentials: "include",
@@ -278,7 +287,7 @@ function Property() {
   //get reviews
   useEffect(() => {
     axios
-      .get(`https://house-of-dev.onrender.com/api/reviews/${pid}`, {
+      .get(`https://house-of-dev-server.onrender.com/api/reviews/${pid}`, {
         withCredentials: true,
         credentials: "include",
       })
@@ -291,7 +300,7 @@ function Property() {
     e.preventDefault();
 
     axios
-      .post("https://house-of-dev.onrender.com/api/reviews/register", {
+      .post("https://house-of-dev-server.onrender.comapi/reviews/register", {
         pid,
         uid,
         rating: valoracion.value,

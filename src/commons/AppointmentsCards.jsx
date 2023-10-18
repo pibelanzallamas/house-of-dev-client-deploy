@@ -14,7 +14,9 @@ function AppointmentsCards({ cita, modFavs }) {
   //send email
   function sendEmail(email) {
     axios
-      .post(`/api/users/delete/${email}`)
+      .post(
+        `https://house-of-dev-server.onrender.com/api/users/delete/${email}`
+      )
       .then(() => alerts("Exito!", "Mail de cencelación enviado ✉️", "success"))
       .catch(() => alerts("Rayos!", "Mail no pudo enviarse ☠️", "warning"));
   }
@@ -30,7 +32,9 @@ function AppointmentsCards({ cita, modFavs }) {
 
   const handleConfirm = () => {
     axios
-      .delete(`/api/appointments/${aid}`)
+      .delete(
+        `https://house-of-dev-server.onrender.com/api/appointments/${aid}`
+      )
       .then(() => {
         alerts("Ok!", "Cita cancelada! 🤝", "success");
         sendEmail(user.email);

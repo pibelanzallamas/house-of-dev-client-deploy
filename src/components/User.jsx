@@ -26,7 +26,7 @@ function User() {
   //get user
   useEffect(() => {
     axios
-      .get(`https://house-of-dev.onrender.com/api/users/${uid}`, {
+      .get(`https://house-of-dev-server.onrender.com/api/users/${uid}`, {
         withCredentials: true,
         credentials: "include",
       })
@@ -50,7 +50,7 @@ function User() {
   //mod user
   const handleConfirm = () => {
     axios
-      .put(`https://house-of-dev.onrender.com/api/users/${user.id}`, {
+      .put(`https://house-of-dev-server.onrender.com/api/users/${user.id}`, {
         name,
         email,
         telephone,
@@ -68,10 +68,13 @@ function User() {
   //get favs de user
   useEffect(() => {
     axios
-      .get(`https://house-of-dev.onrender.com/api/favorites/${user.id}`, {
-        withCredentials: true,
-        credentials: "include",
-      })
+      .get(
+        `https://house-of-dev-server.onrender.com/api/favorites/${user.id}`,
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then((res) => setFavoritos(res.data))
       .catch((err) => console.log(err));
   }, [estado, user]);
@@ -79,7 +82,7 @@ function User() {
   //get citas
   useEffect(() => {
     axios
-      .get(`https://house-of-dev.onrender.com/api/appointments/${uid}`, {
+      .get(`https://house-of-dev-server.onrender.com/api/appointments/${uid}`, {
         withCredentials: true,
         credentials: "include",
       })

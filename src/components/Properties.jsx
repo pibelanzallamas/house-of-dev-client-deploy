@@ -9,7 +9,7 @@ function Properties() {
   //get properties
   useEffect(() => {
     axios
-      .get("https://house-of-dev.onrender.com/api/properties/all", {
+      .get("https://house-of-dev-server.onrender.com/api/properties/all", {
         withCredentials: true,
         credentials: "include",
       })

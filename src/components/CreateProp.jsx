@@ -36,22 +36,25 @@ function Properties() {
 
   const handleConfirm = () => {
     axios
-      .post("https://house-of-dev.onrender.com/api/properties/register", {
-        name: name.value,
-        address: address.value,
-        country: country.value,
-        city: city.value,
-        neighborhood: neighborhood.value,
-        description: description.value,
-        categories: categories.value,
-        bathrooms: bathrooms.value,
-        rooms: rooms.value,
-        disponibility: disponibility.value,
-        images: images.value,
-        price: price.value,
-        withCredentials: true,
-        credentials: "include",
-      })
+      .post(
+        "https://house-of-dev-server.onrender.com/api/properties/register",
+        {
+          name: name.value,
+          address: address.value,
+          country: country.value,
+          city: city.value,
+          neighborhood: neighborhood.value,
+          description: description.value,
+          categories: categories.value,
+          bathrooms: bathrooms.value,
+          rooms: rooms.value,
+          disponibility: disponibility.value,
+          images: images.value,
+          price: price.value,
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then((prop) => {
         if (prop.data[1]) {
           alerts("Vamos!", "La propiedad se creó con exito 🏠", "success");

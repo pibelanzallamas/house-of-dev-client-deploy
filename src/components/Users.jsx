@@ -14,7 +14,7 @@ function Users() {
   //get all user
   useEffect(() => {
     axios
-      .get("https://house-of-dev.onrender.com/api/users/all", {
+      .get("https://house-of-dev-server.onrender.com/api/users/all", {
         withCredentials: true,
         credentials: "include",
       })
@@ -41,7 +41,7 @@ function Users() {
     const { id, name } = data;
 
     axios
-      .put(`https://house-of-dev.onrender.com/api/users/${id}`, {
+      .put(`https://house-of-dev-server.onrender.com/api/users/${id}`, {
         admin: true,
         withCredentials: true,
         credentials: "include",
@@ -56,7 +56,7 @@ function Users() {
   function confirmDelete() {
     const { id, name } = data;
     axios
-      .delete(`https://house-of-dev.onrender.com/api/users/${id}`, {
+      .delete(`https://house-of-dev-server.onrender.com/api/users/${id}`, {
         withCredentials: true,
         credentials: "include",
       })
