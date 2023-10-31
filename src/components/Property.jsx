@@ -300,7 +300,7 @@ function Property() {
     e.preventDefault();
 
     axios
-      .post("https://house-of-dev-server.onrender.comapi/reviews/register", {
+      .post("https://house-of-dev-server.onrender.com/api/reviews/register", {
         pid,
         uid,
         rating: valoracion.value,
