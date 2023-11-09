@@ -8,9 +8,10 @@ function Home() {
       <div className="home">
         <div className="home-titulo">
           <h2 className="linea1">HOUSE OF DEV INMOBILIARIA</h2>
+          <div className="linea2"></div>
         </div>
         <div className="home-imagen">
-          <img className="imagen-fondo" src="/homeFondo.png" alt="home-fondo" />
+          <img src="/homeFondo.png" alt="home-fondo" />
         </div>
         <hr />
         <Content />
