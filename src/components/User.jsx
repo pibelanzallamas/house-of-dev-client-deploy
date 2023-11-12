@@ -127,7 +127,7 @@ function User() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 minLength={5}
-                maxLength={25}
+                maxLength={45}
                 required
               ></input>
             </div>

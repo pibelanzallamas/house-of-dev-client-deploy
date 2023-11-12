@@ -11,15 +11,7 @@
   width: 41vw;
   position: relative;
 }
-.colitaLogin {
-  position: absolute;
-  background: url("../assets/colita.png") no-repeat;
-  background-size: cover;
-  width: 170px;
-  height: 50px;
-  top: 65%;
-  left: 45%;
-}
+
 .sideBLogin {
   background-image: url("../assets/loginFondo.png");
   background-size: cover;
@@ -50,7 +42,15 @@
   left: 30%;
   position: absolute;
 }
-
+.colitaLogin {
+  position: absolute;
+  background: url("../assets/colita.png") no-repeat;
+  background-size: cover;
+  width: 170px;
+  height: 50px;
+  top: 65%;
+  left: 25%;
+}
 .logoLogin {
   background-image: url("../assets/logoTrans.png");
   background-size: cover;
