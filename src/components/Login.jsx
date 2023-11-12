@@ -33,9 +33,7 @@ function Login() {
 
   return (
     <div className="containerLogin">
-      <div className="sideALogin">
-        <div className="colitaLogin"></div>
-      </div>
+      <div className="sideALogin"></div>
 
       <div className="sideBLogin">
         <div className="blueEffectLogin"></div>
@@ -71,29 +69,7 @@ function Login() {
           <button className="buttonLogin">Log In</button>
         </form>
       </div>
-      <div style={{ left: "82%", position: "absolute" }}>
-        {/* <GoogleOAuthProvider clientId="413054924757-e1sknitkpf313733h32aq5mfhse3f1j8.apps.googleusercontent.com">
-          <GoogleLogin
-            onSuccess={(credentialResponse) => {
-              const decode = jwt_decode(credentialResponse.credential);
-              console.log(decode);
-              const payload = {
-                id: decode.exp,
-                email: decode.email,
-                name: decode.name,
-                telephone: decode.exp,
-                admin: false,
-              };
-              alerts("Aloha!", `Welcome ${decode.name} 🏝`, "success");
-              dispatch(setUser(payload));
-              navigate("/home");
-            }}
-            onError={() => {
-              console.log("Login Failed");
-            }}
-          />
-        </GoogleOAuthProvider> */}
-      </div>
+      <div className="colitaLogin"></div>
     </div>
   );
 }
