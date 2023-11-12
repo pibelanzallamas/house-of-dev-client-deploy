@@ -11,7 +11,6 @@
   width: 41vw;
   position: relative;
 }
-
 .sideBLogin {
   background-image: url("../assets/loginFondo.png");
   background-size: cover;
@@ -151,18 +150,4 @@
   top: 69.3%;
   left: 11.5%;
   color: #5366d1;
-}
-
-.buttonGoogle {
-  position: absolute;
-  top: 87%;
-  left: 38%;
-  background-color: transparent;
-  padding: 5px 15px;
-  font-family: Montserrat;
-  color: #123ac8;
-  cursor: pointer;
-  border: 1px solid #2344bd;
-  border-radius: 40px;
-  font-size: 12px;
 }

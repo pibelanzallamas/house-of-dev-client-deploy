@@ -197,13 +197,6 @@
   height: auto;
 }
 
-.shadow {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  color: red;
-}
-
 .texto-imagen {
   color: white;
   position: absolute;
@@ -226,16 +219,6 @@
   height: 100vh;
   width: 41vw;
   position: relative;
-}
-
-.colitaLogin {
-  position: absolute;
-  background: url("../assets/colita.png") no-repeat;
-  background-size: cover;
-  width: 170px;
-  height: 50px;
-  top: 65%;
-  left: 45%;
 }
 
 .sideBLogin {
@@ -265,6 +248,16 @@
   top: 20.05%;
   left: 30%;
   position: absolute;
+}
+
+.colitaLogin {
+  position: absolute;
+  background: url("../assets/colita.png") no-repeat;
+  background-size: cover;
+  width: 170px;
+  height: 50px;
+  top: 1%;
+  left: 25%;
 }
 
 .logoLogin {
@@ -376,20 +369,6 @@
   top: 69.3%;
   left: 11.5%;
   color: #5366d1;
-}
-
-.buttonGoogle {
-  position: absolute;
-  top: 87%;
-  left: 38%;
-  background-color: transparent;
-  padding: 5px 15px;
-  font-family: Montserrat;
-  color: #123ac8;
-  cursor: pointer;
-  border: 1px solid #2344bd;
-  border-radius: 40px;
-  font-size: 12px;
 }
 
 .navbar {
@@ -760,8 +739,11 @@
   position: absolute;
   left: 37%;
   top: 15%;
+}
+.search-div input input:focus {
   outline: none;
 }
+
 .inputSearch::placeholder {
   color: #123AC8;
 }
@@ -778,8 +760,11 @@
   font-size: 14px;
   position: absolute;
   top: 32%;
+}
+.select select:focus {
   outline: none;
 }
+
 .a {
   left: 1.6%;
 }

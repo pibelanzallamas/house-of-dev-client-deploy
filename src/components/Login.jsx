@@ -66,7 +66,7 @@ function Login() {
           <Link className="registrarse" to="/register">
             <p>¿Registrarse?</p>
           </Link>
-          <button className="buttonLogin">Log In</button>
+          <button className="buttonLogin">Entrar</button>
         </form>
       </div>
       <div className="colitaLogin"></div>
