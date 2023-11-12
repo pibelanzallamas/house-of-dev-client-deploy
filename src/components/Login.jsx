@@ -38,7 +38,7 @@ function Login() {
       <div className="sideBLogin">
         <div className="blueEffectLogin"></div>
       </div>
-
+      <button className="buttonLogin">Entrar</button>
       <div className="loginConteiner">
         <div className="logoLogin"></div>
 
@@ -66,7 +66,6 @@ function Login() {
           <Link className="registrarse" to="/register">
             <p>¿Registrarse?</p>
           </Link>
-          <button className="buttonLogin">Entrar</button>
         </form>
       </div>
       <div className="colitaLogin"></div>
