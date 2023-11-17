@@ -33,12 +33,14 @@ function Login() {
 
   return (
     <div className="containerLogin">
-      <div className="sideALogin"></div>
+      <div className="sideALogin">
+        <div className="colitaR"></div>
+      </div>
 
       <div className="sideBLogin">
         <div className="blueEffectLogin"></div>
       </div>
-      <button className="buttonLogin">Entrar</button>
+
       <div className="loginConteiner">
         <div className="logoLogin"></div>
 
@@ -53,6 +55,7 @@ function Login() {
               required
             ></input>
           </div>
+
           <div className="inputBLogin">
             <div className="buttonLockLog"></div>
             <input
@@ -63,12 +66,14 @@ function Login() {
               required
             ></input>
           </div>
+
           <Link className="registrarse" to="/register">
             <p>¿Registrarse?</p>
           </Link>
+
+          <button className="buttonLogin">Entrar</button>
         </form>
       </div>
-      <div className="colitaLogin"></div>
     </div>
   );
 }
