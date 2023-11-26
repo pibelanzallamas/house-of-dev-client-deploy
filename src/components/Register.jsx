@@ -73,7 +73,7 @@ function Register() {
             <div className="button telephone"></div>
             <input
               className="textInput"
-              placeholder="TELEPHONE"
+              placeholder="TELÉFONO"
               type="number"
               required
               min={10000}
@@ -100,7 +100,7 @@ function Register() {
             <input
               className="textInput"
               type="password"
-              placeholder="PASSWORD"
+              placeholder="CONTRASEÑA"
               required
               {...password}
               maxLength={45}
@@ -111,7 +111,7 @@ function Register() {
             <p className="forgetPassword">¿Ya tiene usuario?</p>
           </Link>
 
-          <button className="buttonRegister"> Register</button>
+          <button className="buttonRegister"> Registrarse</button>
         </form>
       </div>
     </div>

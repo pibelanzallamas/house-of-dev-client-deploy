@@ -62,7 +62,7 @@ function Login() {
               {...password}
               className="textInputBLog"
               type="password"
-              placeholder="PASSWORD"
+              placeholder="CONTRASEÑA"
               required
             ></input>
           </div>
