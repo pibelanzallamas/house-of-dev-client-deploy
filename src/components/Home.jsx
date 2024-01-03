@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Content from "./Content";
+import flechaLogo from "../assets/flechaLogo.svg";
 
 function Home() {
   return (
@@ -10,7 +11,13 @@ function Home() {
           <h2 className="linea1">HOUSE OF DEV INMOBILIARIA</h2>
           <div className="linea2"></div>
         </div>
-        <div className="home-imagen"></div>
+        <div className="home-imagen">
+          <div className="portada-a">
+            <p>
+              Encuentra tu hogar ideal con nosotros. Expertos en bienes raíces.
+            </p>
+          </div>
+        </div>
         <hr />
         <Content />
       </div>

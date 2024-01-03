@@ -195,6 +195,40 @@
   background-position: center;
 }
 
+.portada-a {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 1rem;
+}
+.portada-a p {
+  width: 30ch;
+  text-align: right;
+  font-weight: 700;
+  font-size: 17px;
+  color: #F7F3EE;
+}
+
+.portada-boton {
+  width: 10rem;
+  height: 2.4rem;
+  background-color: #F7F3EE;
+  border-radius: 22px 0px 0px 22px;
+  display: flex;
+  align-items: center;
+}
+.portada-boton p {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 1.2rem;
+}
+.portada-boton img {
+  margin-left: 1rem;
+  display: inline-block;
+}
+
 .home-imagen img {
   width: 100%;
   height: auto;
