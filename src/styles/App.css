@@ -8,14 +8,14 @@
   width: 490px;
   height: 182px;
   margin-bottom: 10px;
-  border: 1px #123ac8 solid;
+  border: 1px #123AC8 solid;
   display: flex;
 }
 
 .imagen {
   height: 100%;
   width: 37%;
-  border-right: solid #123ac8 1px;
+  border-right: solid #123AC8 1px;
   padding: 3px;
   box-sizing: border-box;
 }
@@ -33,18 +33,18 @@
 .rectangulo-uno {
   height: 20%;
   width: 100%;
-  border-bottom: 1px #123ac8 solid;
+  border-bottom: 1px #123AC8 solid;
   display: flex;
 }
 
 .cuadradito-uno {
   height: 100%;
   width: 40%;
-  border-right: 1px #123ac8 solid;
+  border-right: 1px #123AC8 solid;
   position: relative;
 }
 .cuadradito-uno p {
-  color: #123ac8;
+  color: #123AC8;
   position: absolute;
   left: 10%;
   top: -5px;
@@ -61,7 +61,7 @@
   top: 8px;
 }
 .cuadradito-cuatro p {
-  color: #123ac8;
+  color: #123AC8;
   position: absolute;
   left: 16%;
   top: -5px;
@@ -70,7 +70,7 @@
 .cuadradito-dos {
   height: 100%;
   width: 30%;
-  border-right: 1px #123ac8 solid;
+  border-right: 1px #123AC8 solid;
   position: relative;
 }
 .cuadradito-dos img {
@@ -79,7 +79,7 @@
   top: 8px;
 }
 .cuadradito-dos p {
-  color: #123ac8;
+  color: #123AC8;
   position: absolute;
   left: 32%;
   top: -5px;
@@ -88,7 +88,7 @@
 .cuadradito-tres {
   height: 100%;
   width: 35%;
-  border-right: 1px #123ac8 solid;
+  border-right: 1px #123AC8 solid;
   position: relative;
 }
 .cuadradito-tres img {
@@ -97,7 +97,7 @@
   top: 10px;
 }
 .cuadradito-tres p {
-  color: #123ac8;
+  color: #123AC8;
   position: absolute;
   left: 36%;
   top: -5px;
@@ -114,7 +114,7 @@
   top: 8px;
 }
 .cuadradito-cinco p {
-  color: #123ac8;
+  color: #123AC8;
   position: absolute;
   left: 32%;
   top: -5px;
@@ -123,11 +123,11 @@
 .rectangulo-dos {
   height: 30%;
   width: 100%;
-  border-bottom: 1px #123ac8 solid;
+  border-bottom: 1px #123AC8 solid;
   position: relative;
 }
 .rectangulo-dos p {
-  color: #123ac8;
+  color: #123AC8;
   position: absolute;
   left: 3%;
   top: -4px;
@@ -157,8 +157,8 @@
 }
 
 .boton-mas {
-  color: #123ac8;
-  border: #123ac8 solid 1px;
+  color: #123AC8;
+  border: #123AC8 solid 1px;
   border-radius: 20px;
   position: absolute;
   top: 6%;
@@ -175,21 +175,24 @@
 
 .home-titulo {
   width: 100%;
-  font-size: 10px;
-  color: #123ac8;
-  border: #123ac8 1px solid;
+  color: #123AC8;
+  border: #123AC8 1px solid;
   margin-top: 2%;
   margin-bottom: 2%;
+  font-size: 10px;
 }
 
 .linea1 {
   margin-left: 1%;
-  border-bottom: #123ac8 1px solid;
+  border-bottom: #123AC8 1px solid;
 }
 
 .home-imagen {
   width: 100%;
-  position: relative;
+  height: 40vh;
+  background-image: linear-gradient(269deg, rgba(18, 58, 200, 0.6) 5.7%, rgba(18, 58, 200, 0) 70.26%), url("../assets/homeFondo.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .home-imagen img {
@@ -236,11 +239,7 @@
   width: 38vw;
   right: 0px;
   position: absolute;
-  background: linear-gradient(
-    270deg,
-    rgba(18, 58, 200, 0.6) 0%,
-    rgba(18, 58, 200, 0) 100%
-  );
+  background: linear-gradient(270deg, rgba(18, 58, 200, 0.6) 0%, rgba(18, 58, 200, 0) 100%);
 }
 
 .loginConteiner {
@@ -387,7 +386,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  color: #f7f3ee;
+  color: #F7F3EE;
 }
 .navbar-links a {
   margin-right: 25px;
@@ -397,7 +396,7 @@
   margin-right: 0;
 }
 .navbar-links a:hover {
-  border-bottom: 2px solid #123ac8;
+  border-bottom: 2px solid #123AC8;
 }
 
 .user-datos {
@@ -408,7 +407,7 @@
   box-sizing: border-box;
   position: relative;
   border-collapse: collapse;
-  color: #123ac8;
+  color: #123AC8;
   font-size: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding-left: 20px;
@@ -421,12 +420,12 @@
   margin-bottom: 5px;
 }
 .user-datos br {
-  color: #123ac8;
+  color: #123AC8;
 }
 .user-datos input {
-  background-color: #f7f3ee;
+  background-color: #F7F3EE;
   border: none;
-  color: #123ac8;
+  color: #123AC8;
   font-weight: 600;
   font-size: 20px;
   width: 96%;
@@ -435,16 +434,16 @@
   box-sizing: border-box;
   margin-bottom: 10px;
   margin-top: 2px;
-  border-bottom: 1px solid #123ac8;
+  border-bottom: 1px solid #123AC8;
 }
 .user-datos input:focus {
   outline: none;
 }
 
 .boton-editar {
-  color: #123ac8;
-  border: 1px solid #123ac8;
-  background-color: #f7f3ee;
+  color: #123AC8;
+  border: 1px solid #123AC8;
+  background-color: #F7F3EE;
   border-radius: 40px;
   position: absolute;
   top: 86%;
@@ -454,14 +453,14 @@
 }
 
 .onTop {
-  border: 1px solid #123ac8;
+  border: 1px solid #123AC8;
   border-radius: 40px;
   padding: 5px 15px;
   position: absolute;
   left: 45%;
-  color: #123ac8;
+  color: #123AC8;
   cursor: pointer;
-  background-color: #f7f3ee;
+  background-color: #F7F3EE;
 }
 
 .container {
@@ -494,11 +493,7 @@
   width: 38vw;
   right: 0px;
   position: absolute;
-  background: linear-gradient(
-    270deg,
-    rgba(18, 58, 200, 0.6) 0%,
-    rgba(18, 58, 200, 0) 100%
-  );
+  background: linear-gradient(270deg, rgba(18, 58, 200, 0.6) 0%, rgba(18, 58, 200, 0) 100%);
 }
 
 .colitaR {
@@ -660,7 +655,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
   height: 200px;
-  background-color: #f7f3ee;
+  background-color: #F7F3EE;
   position: relative;
 }
 
@@ -668,7 +663,7 @@
   height: "auto";
   margin-top: "10px";
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #f7f3ee;
+  background-color: #F7F3EE;
   width: "100%";
 }
 
@@ -676,12 +671,12 @@
   position: absolute;
   top: 9%;
   left: 87%;
-  border: 1px solid #123ac8;
+  border: 1px solid #123AC8;
   border-radius: 40px;
   padding: 5px 15px;
-  color: #123ac8;
+  color: #123AC8;
   cursor: pointer;
-  background-color: #f7f3ee;
+  background-color: #F7F3EE;
 }
 
 .hacer-cita {
@@ -710,10 +705,10 @@
 }
 
 .boton-fecha {
-  border: solid #123ac8 1px;
-  background-color: #f7f3ee;
+  border: solid #123AC8 1px;
+  background-color: #F7F3EE;
   font-family: montserrat;
-  color: #123ac8;
+  color: #123AC8;
   border-radius: 20px;
   top: 6%;
   left: 73%;
@@ -733,12 +728,12 @@
 }
 
 .search-div input {
-  color: #123ac8;
+  color: #123AC8;
   font-family: montserrat;
-  background-color: #f7f3ee;
+  background-color: #F7F3EE;
   font-size: 14px;
   font-weight: 400;
-  border: solid #123ac8 2px;
+  border: solid #123AC8 2px;
   border-radius: 40px;
   padding: 1% 2%;
   width: 30%;
@@ -753,7 +748,7 @@
 }
 
 .inputSearch::placeholder {
-  color: #123ac8;
+  color: #123AC8;
 }
 
 .select {
@@ -763,7 +758,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  color: #123ac8;
+  color: #123AC8;
   margin-right: 4px;
   font-size: 14px;
   position: absolute;
@@ -794,7 +789,7 @@
   src: url("../fonts/montserrat.ttf");
 }
 body {
-  background-color: #f7f3ee;
+  background-color: #F7F3EE;
   font-family: montserrat;
   padding: 0;
   margin: 0;
