@@ -29,7 +29,7 @@ function Users() {
 
   function handleAdmin(user) {
     setData(user);
-    openPop();
+    openWindow();
   }
 
   function handleDelete(user) {
