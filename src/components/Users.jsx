@@ -7,7 +7,7 @@ import UserModals from "../modals/UserModals";
 function Users() {
   const [users, setUsers] = useState([]);
   const [estado, setEstado] = useState(false);
-  const [window, setWindow] = useState(false);
+  const [pop, setPop] = useState(false);
   const [window2, setWindow2] = useState(false);
   const [data, setData] = useState({});
 
@@ -22,14 +22,14 @@ function Users() {
       .catch((err) => console.log(err));
   }, [estado]);
 
-  const openWindow = () => setWindow(true);
-  const closeWindow = () => setWindow(false);
+  const openWindow = () => setPop(true);
+  const closeWindow = () => setPop(false);
   const openWindow2 = () => setWindow2(true);
   const closeWindow2 = () => setWindow2(false);
 
   function handleAdmin(user) {
     setData(user);
-    openWindow();
+    openPop();
   }
 
   function handleDelete(user) {
@@ -120,7 +120,7 @@ function Users() {
                       ADMIN
                     </button>
                   )}
-                  {user.email === "b@gmail.com" ? (
+                  {user.email === "admin@email.com" ? (
                     <></>
                   ) : (
                     <button
@@ -151,7 +151,7 @@ function Users() {
           </button>
         </div>
         <UserModals
-          isOpen={window}
+          isOpen={pop}
           onClose={closeWindow}
           onConfirm={confirmAdmin}
           text={"¿Desea modificar usuario?"}

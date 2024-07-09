@@ -11,7 +11,7 @@ function Content() {
   const filtroD = useInput("");
   const filtroC = useInput("");
   const filtroR = useInput("");
-  const orden = useInput("");
+  const orden = useInput("recientes");
   const search = useInput("");
 
   //escucha los cambios del user en Card

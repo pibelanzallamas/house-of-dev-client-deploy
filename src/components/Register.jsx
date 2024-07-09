@@ -51,8 +51,10 @@ function Register() {
       </div>
 
       <div className="headerBox">
-        <div className="textLogo"></div>
-        <div className="vector"></div>
+        <Link to={"/home"}>
+          <div className="textLogo"></div>
+          <div className="vector"></div>
+        </Link>
       </div>
 
       <div className="bodyBox">

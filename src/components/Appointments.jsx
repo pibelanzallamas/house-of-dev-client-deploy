@@ -10,7 +10,7 @@ function Appointments() {
   const [estado, setEstado] = useState(false);
   const [aid, setAid] = useState("");
   const [uEmail, setUEmail] = useState("");
-  const [window, setWindow] = useState(false);
+  const [pop, setPop] = useState(false);
 
   useEffect(() => {
     axios
@@ -38,11 +38,11 @@ function Appointments() {
   }
 
   function handleOpen() {
-    setWindow(true);
+    setPop(true);
   }
 
   function handleClose() {
-    setWindow(false);
+    setPop(false);
   }
 
   function handleClick(id, email) {
@@ -164,7 +164,7 @@ function Appointments() {
             IR A INICIO
           </button>
           <UserModals
-            isOpen={window}
+            isOpen={pop}
             onClose={handleClose}
             onConfirm={handleConfirm}
             text={"¿Deseas cancelar la cita?"}

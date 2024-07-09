@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "animate.css/animate.min.css";
 import { alerts } from "../utils/alerts";
 
-function Cards({ property, modFavs }) {
+function Cards({ modAppo, property, modFavs }) {
   const user = useSelector((state) => state.user);
   const uid = user.id;
   const pid = property.id;
@@ -36,7 +36,7 @@ function Cards({ property, modFavs }) {
         else setDate(false);
       })
       .catch((err) => console.log(err));
-  }, [user, uid, pid]);
+  }, [user, uid, pid, modAppo]);
 
   function hanldeLike() {
     axios

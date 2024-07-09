@@ -17,6 +17,11 @@ function User() {
   const [favoritos, setFavoritos] = useState([]);
   const [citas, setCitas] = useState([]);
   const [window, setWindow] = useState(false);
+  const [appo, setAppo] = useState(false);
+
+  const cancelDate = () => {
+    setAppo(!appo);
+  };
 
   //lee estado desde cards
   function hanldeEstado() {
@@ -168,7 +173,11 @@ function User() {
             <div className="todo-tarjetas-prop">
               {favoritos.map((favorito, id) => (
                 <div key={id} className="property-cards-container">
-                  <Cards property={favorito.property} modFavs={hanldeEstado} />
+                  <Cards
+                    modAppo={appo}
+                    property={favorito.property}
+                    modFavs={hanldeEstado}
+                  />
                 </div>
               ))}
             </div>
@@ -188,7 +197,11 @@ function User() {
             </div>
             <div className="todo-tarjetas-prop">
               {citas.map((app) => (
-                <AppointmentsCards cita={app} modFavs={hanldeEstado} />
+                <AppointmentsCards
+                  cancelDate={cancelDate}
+                  cita={app}
+                  modFavs={hanldeEstado}
+                />
               ))}
             </div>
           </>

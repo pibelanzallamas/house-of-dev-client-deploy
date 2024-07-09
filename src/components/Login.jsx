@@ -42,8 +42,9 @@ function Login() {
       </div>
 
       <div className="loginConteiner">
-        <div className="logoLogin"></div>
-
+        <Link to={"/home"}>
+          <div className="logoLogin"></div>
+        </Link>
         <form onSubmit={handleLogin}>
           <div className="inputALogin">
             <div className="buttonMailLog"></div>
