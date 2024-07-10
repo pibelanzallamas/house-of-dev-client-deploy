@@ -21,7 +21,7 @@ function Login() {
           email: email.value,
           password: password.value,
         },
-        { withCredentials: true, credentials: "include" }
+        { withCredentials: true }
       )
       .then((payload) => {
         alerts("Aloha!", `Welcome ${payload.data.name} 🏝`, "success");
