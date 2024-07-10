@@ -15,12 +15,14 @@ function Login() {
     e.preventDefault();
 
     axios
-      .post("https://house-of-dev-server.onrender.com/api/users/login", {
-        email: email.value,
-        password: password.value,
-        withCredentials: true,
-        credentials: "include",
-      })
+      .post(
+        "https://house-of-dev-server.onrender.com/api/users/login",
+        {
+          email: email.value,
+          password: password.value,
+        },
+        { withCredentials: true, credentials: "include" }
+      )
       .then((payload) => {
         alerts("Aloha!", `Welcome ${payload.data.name} 🏝`, "success");
         dispatch(setUser(payload.data));

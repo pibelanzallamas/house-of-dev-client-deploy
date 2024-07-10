@@ -1,6 +1,5 @@
 import Navbar from "../components/Navbar";
 import Content from "./Content";
-import flechaLogo from "../assets/flechaLogo.svg";
 
 function Home() {
   return (
