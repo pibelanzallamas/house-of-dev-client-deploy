@@ -60,7 +60,6 @@ function User() {
         email,
         telephone,
         withCredentials: true,
-        credentials: "include",
       })
       .then(() => {
         alerts("Ok!", "Modificó su perfil 😎", "success");
