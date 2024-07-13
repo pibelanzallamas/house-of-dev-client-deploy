@@ -55,12 +55,18 @@ function User() {
   //mod user
   const handleConfirm = () => {
     axios
-      .put(`https://house-of-dev-server.onrender.com/api/users/${user.id}`, {
-        name,
-        email,
-        telephone,
-        withCredentials: true,
-      })
+      .put(
+        `https://house-of-dev-server.onrender.com/api/users/${user.id}`,
+        {
+          name,
+          email,
+          telephone,
+        },
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then(() => {
         alerts("Ok!", "Modificó su perfil 😎", "success");
         setEstado(!estado);

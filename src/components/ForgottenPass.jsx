@@ -1,8 +1,5 @@
 import React from "react";
-import axios from "axios";
 import useInput from "../hooks/useInput";
-import { useNavigate, Link } from "react-router-dom";
-import { alerts } from "../utils/alerts";
 import houseLogo from "../assets/House.svg";
 import ofDevLogo from "../assets/ofDev.svg";
 import emailLogo from "../assets/emailLogo.svg";

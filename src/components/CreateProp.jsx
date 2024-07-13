@@ -51,6 +51,8 @@ function Properties() {
           disponibility: disponibility.value,
           images: images.value,
           price: price.value,
+        },
+        {
           withCredentials: true,
           credentials: "include",
         }

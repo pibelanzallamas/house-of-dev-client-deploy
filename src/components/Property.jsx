@@ -94,6 +94,8 @@ function Property() {
           price,
           categories,
           disponibility,
+        },
+        {
           withCredentials: true,
           credentials: "include",
         }
@@ -174,11 +176,16 @@ function Property() {
   //find fav
   useEffect(() => {
     axios
-      .get("https://house-of-dev-server.onrender.com/api/favorites/find", {
-        params: { uid, pid },
-        withCredentials: true,
-        credentials: "include",
-      })
+      .get(
+        "https://house-of-dev-server.onrender.com/api/favorites/find",
+        {
+          params: { uid, pid },
+        },
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then((fav) => {
         if (fav.data.pid) setLike(true);
         else setLike(false);
@@ -236,11 +243,16 @@ function Property() {
   //likea
   function hanldeLike() {
     axios
-      .post("https://house-of-dev-server.onrender.com/api/favorites/register", {
-        data: { uid, pid },
-        withCredentials: true,
-        credentials: "include",
-      })
+      .post(
+        "https://house-of-dev-server.onrender.com/api/favorites/register",
+        {
+          data: { uid, pid },
+        },
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then((add) => {
         if (!uid) {
           alerts("Ojo!", "Necesitas estar logueado 💻", "warning");
@@ -262,11 +274,16 @@ function Property() {
   //dislikea
   function hanldeDislike() {
     axios
-      .delete("https://house-of-dev-server.onrender.com/api/favorites/delete", {
-        data: { uid, pid },
-        withCredentials: true,
-        credentials: "include",
-      })
+      .delete(
+        "https://house-of-dev-server.onrender.com/api/favorites/delete",
+        {
+          data: { uid, pid },
+        },
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then((del) => {
         if (del.data === "OK") {
           alerts("Byebye!", "La propiedad se borro de favoritos 😵", "warning");
@@ -300,14 +317,19 @@ function Property() {
     e.preventDefault();
 
     axios
-      .post("https://house-of-dev-server.onrender.com/api/reviews/register", {
-        pid,
-        uid,
-        rating: valoracion.value,
-        review: comentario.value,
-        withCredentials: true,
-        credentials: "include",
-      })
+      .post(
+        "https://house-of-dev-server.onrender.com/api/reviews/register",
+        {
+          pid,
+          uid,
+          rating: valoracion.value,
+          review: comentario.value,
+        },
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then((rev) => {
         if (rev.data[1]) {
           alerts("Vamos!", "La reseña se creó con exito 🏠", "success");

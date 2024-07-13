@@ -41,11 +41,16 @@ function Users() {
     const { id, name } = data;
 
     axios
-      .put(`https://house-of-dev-server.onrender.com/api/users/${id}`, {
-        admin: true,
-        withCredentials: true,
-        credentials: "include",
-      })
+      .put(
+        `https://house-of-dev-server.onrender.com/api/users/${id}`,
+        {
+          admin: true,
+        },
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      )
       .then(() => {
         setEstado(!estado);
         alerts("Ok!", `El usuario ${name} ahora es admin 💼`, "success");

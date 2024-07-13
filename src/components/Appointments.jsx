@@ -15,7 +15,9 @@ function Appointments() {
   useEffect(() => {
     axios
       .get("https://house-of-dev-server.onrender.com/api/appointments/all", {
-        withCredentials: true})
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((data) => {
         setAppointments(data.data);
       })

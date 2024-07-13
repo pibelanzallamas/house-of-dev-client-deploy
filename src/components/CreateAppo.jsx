@@ -53,6 +53,8 @@ function CreateAppo() {
           uid,
           pid,
           date: startDate,
+        },
+        {
           withCredentials: true,
           credentials: "include",
         }
@@ -82,6 +84,8 @@ function CreateAppo() {
         "https://house-of-dev-server.onrender.com/api/appointments/find/one",
         {
           params: { uid, pid },
+        },
+        {
           withCredentials: true,
           credentials: "include",
         }
@@ -100,7 +104,8 @@ function CreateAppo() {
     axios
       .post(
         `https://house-of-dev-server.onrender.com/api/users/register/${user.email}`,
-        { date, place, withCredentials: true, credentials: "include" }
+        { date, place },
+        { withCredentials: true, credentials: "include" }
       )
       .then(() =>
         alerts("Exito!", "Mail de confirmación enviado ✉️", "success")
