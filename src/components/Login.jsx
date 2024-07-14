@@ -4,12 +4,26 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../state/userState";
 import { useNavigate, Link } from "react-router-dom";
 import { alerts } from "../utils/alerts";
+import { useState } from "react";
 
 function Login() {
   const email = useInput("");
   const password = useInput("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [user, setUser] = useState(window.localStorage.getItem("text"));
+
+  function handleStorage(value) {
+    setUser(value);
+
+    try {
+      window.localStorage.setItem("text", user);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  console.log(user);
 
   function handleLogin(e) {
     e.preventDefault();
@@ -26,6 +40,7 @@ function Login() {
       .then((payload) => {
         alerts("Aloha!", `Welcome ${payload.data.name} 🏝`, "success");
         dispatch(setUser(payload.data));
+        handleStorage(payload.data);
         navigate("/home");
       })
       .catch(() => {
