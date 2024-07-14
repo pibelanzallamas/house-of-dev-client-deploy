@@ -13,10 +13,9 @@ function Login() {
   const navigate = useNavigate();
   const [user, setUser] = useState(window.localStorage.getItem("text"));
 
-  function handleStorage(value) {
-    setUser(value);
-
+  function setLocalStorage(value) {
     try {
+      setUser(value);
       window.localStorage.setItem("text", user);
     } catch (error) {
       console.error(error);
@@ -40,8 +39,8 @@ function Login() {
       .then((payload) => {
         alerts("Aloha!", `Welcome ${payload.data.name} 🏝`, "success");
         dispatch(setUser(payload.data));
-        handleStorage(payload.data);
         navigate("/home");
+        setLocalStorage(payload.data);
       })
       .catch(() => {
         alerts("Nope!", "Email o password incorrectos ☠️", "danger");

@@ -18,14 +18,19 @@ function Navbar() {
   };
 
   useEffect(() => {
-    axios
-      .post("https://house-of-dev-server.onrender.com/api/users/me", {
-        withCredentials: true,
-        credentials: "include",
-      })
-      .then((cok) => dispatch(setUser(cok.data)))
-      .catch((err) => console.log(err));
-  }, [dispatch]);
+    dispatch(setUser(window.localStorage.getItem("text")));
+  }, []);
+
+  console.log(user);
+  // useEffect(() => {
+  //   axios
+  //     .post("https://house-of-dev-server.onrender.com/api/users/me", {
+  //       withCredentials: true,
+  //       credentials: "include",
+  //     })
+  //     .then((cok) => dispatch(setUser(cok.data)))
+  //     .catch((err) => console.log(err));
+  // }, [dispatch]);
 
   function handleLogout(e) {
     e.preventDefault();
