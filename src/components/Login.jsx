@@ -39,11 +39,12 @@ function Login() {
       .then((payload) => {
         alerts("Aloha!", `Welcome ${payload.data.name} 🏝`, "success");
         console.log(payload.data);
-        dispatch(setUser(payload.data));
         navigate("/home");
+        dispatch(setUser(payload.data));
         // setLocalStorage(payload.data);
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err);
         alerts("Nope!", "Email o password incorrectos ☠️", "danger");
       });
   }
