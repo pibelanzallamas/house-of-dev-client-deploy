@@ -23,7 +23,7 @@ function Navbar() {
 
   useEffect(() => {
     axios
-      .post("https://house-of-dev-server.onrender.com/api/users/me", {
+      .get("https://house-of-dev-server.onrender.com/api/users/me", {
         withCredentials: true,
         credentials: "include",
       })
