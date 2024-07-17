@@ -4,25 +4,23 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../state/userState";
 import { useNavigate, Link } from "react-router-dom";
 import { alerts } from "../utils/alerts";
-import { useState } from "react";
+// import { useState } from "react";
 
 function Login() {
   const email = useInput("");
   const password = useInput("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [user, setUser] = useState(window.localStorage.getItem("text"));
+  // const [user, setUser] = useState(window.localStorage.getItem("text"));
 
-  function setLocalStorage(value) {
-    try {
-      setUser(value);
-      window.localStorage.setItem("text", user);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  console.log(user);
+  // function setLocalStorage(value) {
+  //   try {
+  //     setUser(value);
+  //     window.localStorage.setItem("text", user);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
 
   function handleLogin(e) {
     e.preventDefault();
@@ -38,9 +36,9 @@ function Login() {
       )
       .then((payload) => {
         alerts("Aloha!", `Welcome ${payload.data.name} 🏝`, "success");
-        console.log(payload.data);
-        navigate("/home");
+        console.log("payload", payload.data);
         dispatch(setUser(payload.data));
+        navigate("/home");
         // setLocalStorage(payload.data);
       })
       .catch((err) => {
