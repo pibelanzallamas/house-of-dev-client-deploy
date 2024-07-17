@@ -28,7 +28,6 @@ function Navbar() {
         credentials: "include",
       })
       .then((cok) => {
-        console.log(cok.data);
         dispatch(setUser(cok.data));
       })
       .catch((err) => console.log(err));
