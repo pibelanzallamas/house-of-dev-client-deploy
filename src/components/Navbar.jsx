@@ -28,10 +28,11 @@ function Navbar() {
         credentials: "include",
       })
       .then((cok) => {
-        dispatch(setUser(cok.data));
+        console.log(cok);
+        if (cok.data.id) dispatch(setUser(cok.data));
       })
       .catch((err) => console.log(err));
-  }, [dispatch]);
+  }, []);
 
   function handleLogout(e) {
     e.preventDefault();
