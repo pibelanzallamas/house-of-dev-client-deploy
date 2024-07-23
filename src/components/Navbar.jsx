@@ -17,22 +17,6 @@ function Navbar() {
     padding: "1rem",
   };
 
-  // useEffect(() => {
-  //   dispatch(setUser(window.localStorage.getItem("text")));
-  // }, []);
-
-  // useEffect(() => {
-  //   axios
-  //     .post("https://house-of-dev-server.onrender.com/api/users/me", {
-  //       withCredentials: true,
-  //       credentials: "include",
-  //     })
-  //     .then((cok) => {
-  //       if (cok.data.id) dispatch(setUser(cok.data));
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
-
   function handleLogout(e) {
     e.preventDefault();
 

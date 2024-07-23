@@ -28,7 +28,7 @@ function Login() {
       .then((payload) => {
         alerts("Aloha!", `Welcome ${payload.data.name} 🏝`, "success");
         dispatch(setUser(payload.data));
-        setLocalStorageUser(payload.data);
+        setLocalStorageUser(payload.data.data);
         navigate("/home");
       })
       .catch((err) => {
@@ -36,7 +36,9 @@ function Login() {
         alerts("Nope!", "Email o password incorrectos ☠️", "danger");
       });
   }
+
   console.log(localStorageUser);
+
   return (
     <div className="containerLogin">
       <div className="sideALogin">
