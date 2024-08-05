@@ -4,14 +4,14 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../state/userState";
 import { useNavigate, Link } from "react-router-dom";
 import { alerts } from "../utils/alerts";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+// import { useLocalStorage } from "../hooks/useLocalStorage";
 
 function Login() {
   const email = useInput("");
   const password = useInput("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [localStorageUser, setLocalStorageUser] = useLocalStorage("user", "");
+  // const [localStorageUser, setLocalStorageUser] = useLocalStorage("user", "");
 
   function handleLogin(e) {
     e.preventDefault();
