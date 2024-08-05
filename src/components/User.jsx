@@ -12,14 +12,29 @@ function User() {
   const userLS = JSON.parse(localStorage.getItem("user")); //obtiene desde el local storage
   const user = userRX.id ? userRX : userLS; //obtiene user de acuerdo a cual este disponible
   const uid = user.id;
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [telephone, setTelephone] = useState("");
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
+  const [telephone, setTelephone] = useState(user.telephone);
   const [estado, setEstado] = useState(false);
   const [favoritos, setFavoritos] = useState([]);
   const [citas, setCitas] = useState([]);
   const [window, setWindow] = useState(false);
   const [appo, setAppo] = useState(false);
+
+  //get user
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://house-of-dev-server.onrender.com/api/users/${uid}`, {
+  //       withCredentials: true,
+  //       credentials: "include",
+  //     })
+  //     .then((user) => {
+  //       setName(user.data.name);
+  //       setEmail(user.data.email);
+  //       setTelephone(user.data.telephone);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, [user, uid]);
 
   //form submit mod user
   const handleSubmit = (e) => {
