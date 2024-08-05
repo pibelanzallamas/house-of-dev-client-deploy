@@ -9,34 +9,33 @@ import UserModals from "../modals/UserModals";
 import { useNavigate, useParams } from "react-router-dom";
 
 function User() {
-  // const user = useSelector((state) => state.user);
-  const user = localStorage.getItem("user");
-  const uid = useParams().id;
-  const [name, setName] = useState(user.name || "");
-  const [email, setEmail] = useState(user.email || "");
-  const [telephone, setTelephone] = useState(user.telephone || "");
+  const user = useSelector((state) => state.user);
+  const uid = useParams().id || user.id;
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [telephone, setTelephone] = useState("");
   const [estado, setEstado] = useState(false);
   const [favoritos, setFavoritos] = useState([]);
   const [citas, setCitas] = useState([]);
   const [window, setWindow] = useState(false);
   const [appo, setAppo] = useState(false);
 
-  console.log(localStorage.getItem("user"));
+  console.log(window.localStorage.getItem("user"));
 
   //get user
-  // useEffect(() => {
-  //   axios
-  //     .get(`https://house-of-dev-server.onrender.com/api/users/${uid}`, {
-  //       withCredentials: true,
-  //       credentials: "include",
-  //     })
-  //     .then((user) => {
-  //       setName(user.data.name);
-  //       setEmail(user.data.email);
-  //       setTelephone(user.data.telephone);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, [user, uid]);
+  useEffect(() => {
+    axios
+      .get(`https://house-of-dev-server.onrender.com/api/users/${uid}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
+      .then((user) => {
+        setName(user.data.name);
+        setEmail(user.data.email);
+        setTelephone(user.data.telephone);
+      })
+      .catch((err) => console.log(err));
+  }, [user, uid]);
 
   //form submit mod user
   const handleSubmit = (e) => {
