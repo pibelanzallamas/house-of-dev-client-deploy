@@ -6,10 +6,11 @@ import Navbar from "../components/Navbar";
 import Cards from "../commons/Cards";
 import AppointmentsCards from "../commons/AppointmentsCards";
 import UserModals from "../modals/UserModals";
+import { useNavigate, useParams } from "react-router-dom";
 
 function User() {
   const user = useSelector((state) => state.user);
-  const uid = user.id;
+  const uid = useParams().id;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [telephone, setTelephone] = useState("");
@@ -20,15 +21,6 @@ function User() {
   const [appo, setAppo] = useState(false);
 
   console.log(localStorage.getItem("user"));
-
-  const cancelDate = () => {
-    setAppo(!appo);
-  };
-
-  //lee estado desde cards
-  function hanldeEstado() {
-    setEstado(!estado);
-  }
 
   //get user
   useEffect(() => {
@@ -45,13 +37,14 @@ function User() {
       .catch((err) => console.log(err));
   }, [user, uid]);
 
-  //form submit
+  //form submit mod user
   const handleSubmit = (e) => {
     e.preventDefault();
     handleOpen();
   };
-  const handleOpen = () => setWindow(true);
 
+  //modal management
+  const handleOpen = () => setWindow(true);
   const handleClose = () => setWindow(false);
 
   //mod user
@@ -101,6 +94,16 @@ function User() {
       .then((all) => setCitas(all.data))
       .catch((err) => console.log(err));
   }, [estado, uid]);
+
+  //estado alert citas
+  const cancelDate = () => {
+    setAppo(!appo);
+  };
+
+  //estado alert cards
+  function hanldeEstado() {
+    setEstado(!estado);
+  }
 
   return (
     <div>
