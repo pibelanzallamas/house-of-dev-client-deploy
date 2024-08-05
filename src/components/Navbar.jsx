@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setUser } from "../state/userState";
 import { alerts } from "../utils/alerts";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Navbar() {
   const navigate = useNavigate();
