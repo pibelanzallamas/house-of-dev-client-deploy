@@ -1,13 +1,13 @@
 import axios from "axios";
-import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setUser } from "../state/userState";
 import { alerts } from "../utils/alerts";
+import { useState } from "react";
 
 function Navbar() {
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user);
+  const [user, setUser2] = useState({});
   const dispatch = useDispatch();
   const condicion = {
     backgroundColor: user.admin ? "#123AC8" : "red",
@@ -17,9 +17,23 @@ function Navbar() {
     padding: "1rem",
   };
 
+  useEffect(() => {
+    const userLS = localStorage.getItem("user");
+    const userRx = useSelector((state) => state.user);
+    console.log(userLS);
+    console.log(userRx);
+    if (userLS.id) {
+      setUser2(userLS);
+    } else if (userRx.id) {
+      setUser2(userRx);
+    } else {
+      console.log("no existe ni el user en redux ni en el localstorage");
+    }
+  });
+
+  //log out
   function handleLogout(e) {
     e.preventDefault();
-
     const initialState = {
       id: null,
       email: null,
