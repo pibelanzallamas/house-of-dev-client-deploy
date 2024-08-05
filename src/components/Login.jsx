@@ -24,9 +24,9 @@ function Login() {
         { withCredentials: true, credentials: "include" }
       )
       .then((payload) => {
-        alerts("Aloha!", `Welcome ${payload.data.name} 🏝`, "success");
+        localStorage.setItem("user", JSON.stringify(payload.data));
         dispatch(setUser(payload.data));
-        window.localStorage.setItem("user", JSON.stringify(payload.data));
+        alerts("Aloha!", `Welcome ${payload.data.name} 🏝`, "success");
         navigate("/home");
       })
       .catch((err) => {

@@ -34,17 +34,6 @@ function User() {
   //     .catch((err) => console.log(err));
   // }, [user, uid]);
 
-  //get user
-  useEffect(() => {
-    //obtener los datos del usuario, pero: se refresca el sitio
-    //para obtener los ddu, tengo que obtenerlos de mi global store, es un objeto creado y manejao con redux, en el que
-    //puedo tener acceso en toda mi aplicación
-    //cuando el sitio se refresca, ese global store se reinicia entondces tengo que obtener los ddu atravez de
-    //mi localStorage que es un obejto que se guarda en el lado del cliente del usuario, en el browser
-    //como hago para saber cuando usar cada uno?
-    //
-  });
-
   //form submit mod user
   const handleSubmit = (e) => {
     e.preventDefault();

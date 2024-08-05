@@ -3,11 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setUser } from "../state/userState";
 import { alerts } from "../utils/alerts";
-import { useState, useEffect } from "react";
 
 function Navbar() {
   const navigate = useNavigate();
-  const [user, setUser2] = useState(useSelector((state) => state.user));
+  const userRX = useSelector((state) => state.user); //obtiene desde la global store
+  const userLS = JSON.parse(localStorage.getItem("user")); //obtiene desde el local storage
+  const user = userRX ? userRX : userLS; //obtiene user de acuerdo a cual este disponible
   const dispatch = useDispatch();
   const condicion = {
     backgroundColor: user.admin ? "#123AC8" : "red",
@@ -16,16 +17,6 @@ function Navbar() {
     justifyContent: "space-between",
     padding: "1rem",
   };
-
-  useEffect(() => {
-    const userLS = JSON.parse(localStorage.getItem("user"));
-    console.log(userLS);
-    if (userLS.id) {
-      setUser2(userLS);
-    } else {
-      console.log("no existe ni el user en redux ni en el localstorage");
-    }
-  });
 
   //log out
   function handleLogout(e) {
@@ -44,6 +35,7 @@ function Navbar() {
       })
       .then(() => {
         dispatch(setUser(initialState));
+        localStorage.removeItem("user");
         alerts("See ya!", `Goodbye ${user.name} 🚀`, "success");
         navigate("/");
       })
