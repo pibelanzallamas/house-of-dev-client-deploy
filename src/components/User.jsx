@@ -65,7 +65,7 @@ function User() {
       )
       .then((user) => {
         setEstado(!estado); //modificado en la base de datos
-        console.log(user.data);
+        console.log(user);
         // const newUser = user[0];
         // dispatch(setUser(newUser)); //modificado en el global store
         // localStorage.setItem("user", newUser); //modificado en el local storage
