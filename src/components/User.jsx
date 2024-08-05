@@ -23,7 +23,7 @@ function User() {
   const [appo, setAppo] = useState(false);
   const dispatch = useDispatch();
 
-  //get user
+  //get user from ddb
   useEffect(() => {
     axios
       .get(`https://house-of-dev-server.onrender.com/api/users/${uid}`, {
@@ -43,7 +43,6 @@ function User() {
     e.preventDefault();
     handleOpen();
   };
-
   //modal management
   const handleOpen = () => setWindow(true);
   const handleClose = () => setWindow(false);
@@ -109,6 +108,11 @@ function User() {
   function hanldeEstado() {
     setEstado(!estado);
   }
+
+  //modificar un usuario
+  // me modifica en la base de datos, pero necesito que me modifique tambien en en el ls y en gs
+  // para poder tener los datos actulizados en toda mi aplicacion
+  // ob
 
   return (
     <div>
