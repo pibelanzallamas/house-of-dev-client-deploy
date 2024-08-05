@@ -8,7 +8,7 @@ function Navbar() {
   const navigate = useNavigate();
   const userRX = useSelector((state) => state.user); //obtiene desde la global store
   const userLS = JSON.parse(localStorage.getItem("user")); //obtiene desde el local storage
-  const user = userRX ? userRX : userLS; //obtiene user de acuerdo a cual este disponible
+  const user = userRX.id ? userRX : userLS; //obtiene user de acuerdo a cual este disponible
   console.log("rx", userRX);
   console.log("ls", userLS);
   console.log("user", user);
