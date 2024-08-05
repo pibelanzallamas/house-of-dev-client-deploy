@@ -7,8 +7,7 @@ import { alerts } from "../utils/alerts";
 
 function Navbar() {
   const navigate = useNavigate();
-  const user =
-    localStorage.getItem("user") || useSelector((state) => state.user);
+  const user = localStorage.getItem("user");
   const dispatch = useDispatch();
   const condicion = {
     backgroundColor: user.admin ? "#123AC8" : "red",
