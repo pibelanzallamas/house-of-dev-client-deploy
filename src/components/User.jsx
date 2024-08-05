@@ -8,7 +8,9 @@ import AppointmentsCards from "../commons/AppointmentsCards";
 import UserModals from "../modals/UserModals";
 
 function User() {
-  const user = useSelector((state) => state.user);
+  const userRX = useSelector((state) => state.user); //obtiene desde la global store
+  const userLS = JSON.parse(localStorage.getItem("user")); //obtiene desde el local storage
+  const user = userRX.id ? userRX : userLS; //obtiene user de acuerdo a cual este disponible
   const uid = user.id;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -18,21 +20,6 @@ function User() {
   const [citas, setCitas] = useState([]);
   const [window, setWindow] = useState(false);
   const [appo, setAppo] = useState(false);
-
-  //get user
-  // useEffect(() => {
-  //   axios
-  //     .get(`https://house-of-dev-server.onrender.com/api/users/${uid}`, {
-  //       withCredentials: true,
-  //       credentials: "include",
-  //     })
-  //     .then((user) => {
-  //       setName(user.data.name);
-  //       setEmail(user.data.email);
-  //       setTelephone(user.data.telephone);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, [user, uid]);
 
   //form submit mod user
   const handleSubmit = (e) => {
