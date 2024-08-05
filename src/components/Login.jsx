@@ -26,8 +26,7 @@ function Login() {
       .then((payload) => {
         alerts("Aloha!", `Welcome ${payload.data.name} 🏝`, "success");
         dispatch(setUser(payload.data));
-        window.localStorage.setItem("user", payload.data);
-        console.log(localStorage.getItem("user"));
+        window.localStorage.setItem("user", JSON.stringify(payload.data));
         navigate("/home");
       })
       .catch((err) => {
