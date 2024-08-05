@@ -20,8 +20,6 @@ function User() {
   const [window, setWindow] = useState(false);
   const [appo, setAppo] = useState(false);
 
-  console.log(window.localStorage.getItem("user"));
-
   //get user
   useEffect(() => {
     axios
