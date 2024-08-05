@@ -6,7 +6,6 @@ import Navbar from "../components/Navbar";
 import Cards from "../commons/Cards";
 import AppointmentsCards from "../commons/AppointmentsCards";
 import UserModals from "../modals/UserModals";
-import { useParams } from "react-router-dom";
 
 function User() {
   const user = useSelector((state) => state.user);

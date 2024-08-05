@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 function Navbar() {
   const navigate = useNavigate();
-  const [user, setUser2] = useState({});
+  const [user, setUser2] = useState(useSelector((state) => state.user));
   const dispatch = useDispatch();
   const condicion = {
     backgroundColor: user.admin ? "#123AC8" : "red",
@@ -19,13 +19,9 @@ function Navbar() {
 
   useEffect(() => {
     const userLS = localStorage.getItem("user");
-    const userRx = useSelector((state) => state.user);
     console.log(userLS);
-    console.log(userRx);
     if (userLS.id) {
       setUser2(userLS);
-    } else if (userRx.id) {
-      setUser2(userRx);
     } else {
       console.log("no existe ni el user en redux ni en el localstorage");
     }
