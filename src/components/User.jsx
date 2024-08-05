@@ -65,9 +65,10 @@ function User() {
       )
       .then((user) => {
         setEstado(!estado); //modificado en la base de datos
-        const newUser = user[0];
-        dispatch(setUser(newUser)); //modificado en el global store
-        localStorage.setItem("user", newUser); //modificado en el local storage
+        console.log(user.data);
+        // const newUser = user[0];
+        // dispatch(setUser(newUser)); //modificado en el global store
+        // localStorage.setItem("user", newUser); //modificado en el local storage
         alerts("Ok!", "Modificó su perfil 😎", "success");
         handleClose();
       })
