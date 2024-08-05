@@ -6,11 +6,11 @@ import Navbar from "../components/Navbar";
 import Cards from "../commons/Cards";
 import AppointmentsCards from "../commons/AppointmentsCards";
 import UserModals from "../modals/UserModals";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function User() {
   const user = useSelector((state) => state.user);
-  const uid = useParams().id || user.id;
+  const uid = user.id;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [telephone, setTelephone] = useState("");
@@ -21,19 +21,30 @@ function User() {
   const [appo, setAppo] = useState(false);
 
   //get user
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://house-of-dev-server.onrender.com/api/users/${uid}`, {
+  //       withCredentials: true,
+  //       credentials: "include",
+  //     })
+  //     .then((user) => {
+  //       setName(user.data.name);
+  //       setEmail(user.data.email);
+  //       setTelephone(user.data.telephone);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, [user, uid]);
+
+  //get user
   useEffect(() => {
-    axios
-      .get(`https://house-of-dev-server.onrender.com/api/users/${uid}`, {
-        withCredentials: true,
-        credentials: "include",
-      })
-      .then((user) => {
-        setName(user.data.name);
-        setEmail(user.data.email);
-        setTelephone(user.data.telephone);
-      })
-      .catch((err) => console.log(err));
-  }, [user, uid]);
+    //obtener los datos del usuario, pero: se refresca el sitio
+    //para obtener los ddu, tengo que obtenerlos de mi global store, es un objeto creado y manejao con redux, en el que
+    //puedo tener acceso en toda mi aplicación
+    //cuando el sitio se refresca, ese global store se reinicia entondces tengo que obtener los ddu atravez de
+    //mi localStorage que es un obejto que se guarda en el lado del cliente del usuario, en el browser
+    //como hago para saber cuando usar cada uno?
+    //
+  });
 
   //form submit mod user
   const handleSubmit = (e) => {
