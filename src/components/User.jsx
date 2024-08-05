@@ -1,40 +1,42 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { alerts } from "../utils/alerts";
 import Navbar from "../components/Navbar";
 import Cards from "../commons/Cards";
 import AppointmentsCards from "../commons/AppointmentsCards";
 import UserModals from "../modals/UserModals";
+import { setUser } from "../state/userState";
 
 function User() {
   const userRX = useSelector((state) => state.user); //obtiene desde la global store
   const userLS = JSON.parse(localStorage.getItem("user")); //obtiene desde el local storage
   const user = userRX.id ? userRX : userLS; //obtiene user de acuerdo a cual este disponible
   const uid = user.id;
-  const [name, setName] = useState(user.name);
-  const [email, setEmail] = useState(user.email);
-  const [telephone, setTelephone] = useState(user.telephone);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [telephone, setTelephone] = useState("");
   const [estado, setEstado] = useState(false);
   const [favoritos, setFavoritos] = useState([]);
   const [citas, setCitas] = useState([]);
   const [window, setWindow] = useState(false);
   const [appo, setAppo] = useState(false);
+  const dispatch = useDispatch();
 
   //get user
-  // useEffect(() => {
-  //   axios
-  //     .get(`https://house-of-dev-server.onrender.com/api/users/${uid}`, {
-  //       withCredentials: true,
-  //       credentials: "include",
-  //     })
-  //     .then((user) => {
-  //       setName(user.data.name);
-  //       setEmail(user.data.email);
-  //       setTelephone(user.data.telephone);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, [user, uid]);
+  useEffect(() => {
+    axios
+      .get(`https://house-of-dev-server.onrender.com/api/users/${uid}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
+      .then((user) => {
+        setName(user.data.name);
+        setEmail(user.data.email);
+        setTelephone(user.data.telephone);
+      })
+      .catch((err) => console.log(err));
+  }, [uid]);
 
   //form submit mod user
   const handleSubmit = (e) => {
@@ -50,7 +52,7 @@ function User() {
   const handleConfirm = () => {
     axios
       .put(
-        `https://house-of-dev-server.onrender.com/api/users/${user.id}`,
+        `https://house-of-dev-server.onrender.com/api/users/${uid}`,
         {
           name,
           email,
@@ -61,9 +63,12 @@ function User() {
           credentials: "include",
         }
       )
-      .then(() => {
+      .then((user) => {
+        setEstado(!estado); //modificado en la base de datos
+        const newUser = user[0];
+        dispatch(setUser(newUser)); //modificado en el global store
+        localStorage.setItem("user", newUser); //modificado en el local storage
         alerts("Ok!", "Modificó su perfil 😎", "success");
-        setEstado(!estado);
         handleClose();
       })
       .catch(() => alerts("Err", "Ingrese datos correctos 😖", "danger"));
