@@ -9,6 +9,9 @@ function Navbar() {
   const userRX = useSelector((state) => state.user); //obtiene desde la global store
   const userLS = JSON.parse(localStorage.getItem("user")); //obtiene desde el local storage
   const user = userRX ? userRX : userLS; //obtiene user de acuerdo a cual este disponible
+  console.log("rx", userRX);
+  console.log("ls", userLS);
+  console.log("user", user);
   const dispatch = useDispatch();
   const condicion = {
     backgroundColor: user.admin ? "#123AC8" : "red",
