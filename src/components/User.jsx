@@ -19,6 +19,8 @@ function User() {
   const [window, setWindow] = useState(false);
   const [appo, setAppo] = useState(false);
 
+  console.log(localStorage.getItem("user"));
+
   const cancelDate = () => {
     setAppo(!appo);
   };
