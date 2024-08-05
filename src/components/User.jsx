@@ -64,7 +64,6 @@ function User() {
       )
       .then((user) => {
         setEstado(!estado); //modificado en la base de datos
-        console.log(user.data);
         const newUser = {
           id: user.data.id,
           name: user.data.name,
@@ -73,7 +72,8 @@ function User() {
           admin: user.data.admin,
         };
         dispatch(setUser(newUser)); //modificado en el global store
-        localStorage.setItem("user", newUser); //modificado en el local storage
+        localStorage.setItem("user", JSON.stringify(newUser)); //modificado en el local storage
+        //hay que convertir en string lo enviado a localStorage
         alerts("Ok!", "Modificó su perfil 😎", "success");
         handleClose();
       })
