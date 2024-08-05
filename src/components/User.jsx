@@ -23,6 +23,7 @@ function User() {
   const [appo, setAppo] = useState(false);
   const dispatch = useDispatch();
 
+  console.log("uid from user", uid);
   //get user from ddb
   useEffect(() => {
     axios
