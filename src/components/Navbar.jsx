@@ -17,7 +17,7 @@ function Navbar() {
     justifyContent: "space-between",
     padding: "1rem",
   };
-  console.log(user);
+
   //log out
   function handleLogout(e) {
     e.preventDefault();
