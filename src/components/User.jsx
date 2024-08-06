@@ -13,9 +13,9 @@ function User() {
   const userLS = JSON.parse(localStorage.getItem("user")); //obtiene desde el local storage
   const user = userRX.id ? userRX : userLS; //obtiene user de acuerdo a cual este disponible
   const uid = user.id;
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [telephone, setTelephone] = useState("");
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
+  const [telephone, setTelephone] = useState(user.telephone);
   const [estado, setEstado] = useState(false);
   const [favoritos, setFavoritos] = useState([]);
   const [citas, setCitas] = useState([]);
@@ -23,29 +23,23 @@ function User() {
   const [appo, setAppo] = useState(false);
   const dispatch = useDispatch();
 
-  //get user from ddb
-  useEffect(() => {
-    axios
-      .get(`https://house-of-dev-server.onrender.com/api/users/${uid}`, {
-        withCredentials: true,
-        credentials: "include",
-      })
-      .then((user) => {
-        setName(user.data.name);
-        setEmail(user.data.email);
-        setTelephone(user.data.telephone);
-      })
-      .catch((err) => console.log(err));
-  }, [uid]);
+  //luego de setear el user de LS setear el GS
+  //no me deja likear luego de refresh
 
-  //form submit mod user
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleOpen();
-  };
-  //modal management
-  const handleOpen = () => setWindow(true);
-  const handleClose = () => setWindow(false);
+  //get user from ddb
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://house-of-dev-server.onrender.com/api/users/${uid}`, {
+  //       withCredentials: true,
+  //       credentials: "include",
+  //     })
+  //     .then((user) => {
+  //       setName(user.data.name);
+  //       setEmail(user.data.email);
+  //       setTelephone(user.data.telephone);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, [uid]);
 
   //mod user
   const handleConfirm = () => {
@@ -83,13 +77,10 @@ function User() {
   //get favs de user
   useEffect(() => {
     axios
-      .get(
-        `https://house-of-dev-server.onrender.com/api/favorites/${user.id}`,
-        {
-          withCredentials: true,
-          credentials: "include",
-        }
-      )
+      .get(`https://house-of-dev-server.onrender.com/api/favorites/${uid}`, {
+        withCredentials: true,
+        credentials: "include",
+      })
       .then((res) => setFavoritos(res.data))
       .catch((err) => console.log(err));
   }, [estado, user]);
@@ -114,6 +105,15 @@ function User() {
   function hanldeEstado() {
     setEstado(!estado);
   }
+
+  //form submit mod user
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleOpen();
+  };
+  //modal management
+  const handleOpen = () => setWindow(true);
+  const handleClose = () => setWindow(false);
 
   //modificar un usuario
   // me modifica en la base de datos, pero necesito que me modifique tambien en en el ls y en gs
