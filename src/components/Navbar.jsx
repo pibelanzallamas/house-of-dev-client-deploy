@@ -20,8 +20,8 @@ function Navbar() {
   };
 
   useEffect(() => {
-    dispatch(setUser(user));
-  }, [user]);
+    dispatch(setUser(userRX));
+  }, []);
 
   //log out
   function handleLogout(e) {
