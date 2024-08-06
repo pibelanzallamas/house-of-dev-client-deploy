@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setUser } from "../state/userState";
 import { alerts } from "../utils/alerts";
+import { useEffect } from "react";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -17,6 +18,10 @@ function Navbar() {
     justifyContent: "space-between",
     padding: "1rem",
   };
+
+  useEffect(() => {
+    dispatch(setUser(userRX));
+  });
 
   //log out
   function handleLogout(e) {
