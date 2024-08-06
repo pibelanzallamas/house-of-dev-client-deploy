@@ -23,24 +23,6 @@ function User() {
   const [appo, setAppo] = useState(false);
   const dispatch = useDispatch();
 
-  //luego de setear el user de LS setear el GS
-  //no me deja likear luego de refresh
-
-  //get user from ddb
-  // useEffect(() => {
-  //   axios
-  //     .get(`https://house-of-dev-server.onrender.com/api/users/${uid}`, {
-  //       withCredentials: true,
-  //       credentials: "include",
-  //     })
-  //     .then((user) => {
-  //       setName(user.data.name);
-  //       setEmail(user.data.email);
-  //       setTelephone(user.data.telephone);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, [uid]);
-
   //mod user
   const handleConfirm = () => {
     axios
@@ -65,9 +47,8 @@ function User() {
           telephone: user.data.telephone,
           admin: user.data.admin,
         };
-        dispatch(setUser(newUser)); //modificado en el global store
-        localStorage.setItem("user", JSON.stringify(newUser)); //modificado en el local storage
-        //hay que convertir en string lo enviado a localStorage
+        dispatch(setUser(newUser));
+        localStorage.setItem("user", JSON.stringify(newUser));
         alerts("Ok!", "Modificó su perfil 😎", "success");
         handleClose();
       })
@@ -114,11 +95,6 @@ function User() {
   //modal management
   const handleOpen = () => setWindow(true);
   const handleClose = () => setWindow(false);
-
-  //modificar un usuario
-  // me modifica en la base de datos, pero necesito que me modifique tambien en en el ls y en gs
-  // para poder tener los datos actulizados en toda mi aplicacion
-  // ob
 
   return (
     <div>
