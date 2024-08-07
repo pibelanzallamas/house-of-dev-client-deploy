@@ -13,9 +13,9 @@ function User() {
   const userLS = JSON.parse(localStorage.getItem("user")); //obtiene desde el local storage
   const user = userRX.id ? userRX : userLS; //obtiene user de acuerdo a cual este disponible
   const uid = user.id;
-  const [name, setName] = useState(userRX.name);
-  const [email, setEmail] = useState(userRX.email);
-  const [telephone, setTelephone] = useState(userRX.telephone);
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
+  const [telephone, setTelephone] = useState(user.telephone);
   const [estado, setEstado] = useState(false);
   const [favoritos, setFavoritos] = useState([]);
   const [citas, setCitas] = useState([]);
