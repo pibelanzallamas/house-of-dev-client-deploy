@@ -10,24 +10,8 @@ import Properties from "./Properties";
 import CreateProp from "./CreateProp";
 import CreateAppo from "./CreateAppo";
 import Appointments from "./Appointments";
-import { useDispatch } from "react-redux";
-import { setUser } from "../state/userState";
 
 function AppRoutes() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    async function repartingData() {
-      try {
-        const data = await JSON.parse(localStorage.getItem("user"));
-        await dispatch(setUser(data));
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    repartingData();
-  }, [dispatch]);
-
   return (
     <Routes>
       <Route path="/" element={<Login />} />

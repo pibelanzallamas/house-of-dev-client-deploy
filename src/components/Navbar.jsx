@@ -39,8 +39,8 @@ function Navbar() {
         credentials: "include",
       })
       .then(() => {
-        dispatch(setUser(initialState));
         localStorage.removeItem("user");
+        dispatch(setUser(initialState));
         alerts("See ya!", `Goodbye ${user.name} 🚀`, "success");
         navigate("/");
       })
