@@ -23,6 +23,10 @@ function User() {
   const [appo, setAppo] = useState(false);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(setUser(user));
+  }, []);
+
   //mod user
   const handleConfirm = () => {
     axios
