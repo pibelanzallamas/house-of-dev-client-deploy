@@ -14,11 +14,11 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../state/userState";
 
 function AppRoutes() {
-  const userLS = JSON.parse(localStorage.getItem("user"));
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setUser(userLS));
+    const data = JSON.parse(localStorage.getItem("user"));
+    dispatch(setUser(data));
   }, [dispatch]);
 
   return (

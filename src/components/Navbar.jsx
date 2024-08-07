@@ -7,8 +7,10 @@ import { alerts } from "../utils/alerts";
 function Navbar() {
   const navigate = useNavigate();
   const userRX = useSelector((state) => state.user); //obtiene desde la global store
-  const userLS = JSON.parse(localStorage.getItem("user")); //obtiene desde el local storage
-  const user = userRX.id ? userRX : userLS; //obtiene user de acuerdo a cual este disponible
+  // const userLS = JSON.parse(localStorage.getItem("user")); //obtiene desde el local storage
+  // const user = userRX.id ? userRX : userLS; //obtiene user de acuerdo a cual este disponible
+  const user = userRX;
+  const uid = user.id;
   const dispatch = useDispatch();
   const condicion = {
     backgroundColor: user.admin ? "#123AC8" : "red",

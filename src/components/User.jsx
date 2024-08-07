@@ -24,8 +24,6 @@ function User() {
   const [appo, setAppo] = useState(false);
   const dispatch = useDispatch();
 
-  console.log("userRX, in User", userRX);
-
   //mod user
   const handleConfirm = () => {
     axios
