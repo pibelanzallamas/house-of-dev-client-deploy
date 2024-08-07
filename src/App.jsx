@@ -3,7 +3,7 @@ import AppRoutes from "./components/AppRoutes";
 import { Analytics } from "@vercel/analytics/react";
 import "./styles/App.css";
 import { useDispatch } from "react-redux";
-import { setUser } from "../state/userState";
+import { setUser } from "./state/userState";
 
 function App() {
   const dispatch = useDispatch();
