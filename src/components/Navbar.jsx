@@ -7,9 +7,8 @@ import { alerts } from "../utils/alerts";
 function Navbar() {
   const navigate = useNavigate();
   const userRX = useSelector((state) => state.user); //obtiene desde la global store
-  // const userLS = JSON.parse(localStorage.getItem("user")); //obtiene desde el local storage
-  // const user = userRX.id ? userRX : userLS; //obtiene user de acuerdo a cual este disponible
-  const user = userRX;
+  const userLS = JSON.parse(localStorage.getItem("user")); //obtiene desde el local storage
+  const user = userRX.id ? userRX : userLS; //obtiene user de acuerdo a cual este disponible
   const uid = user.id;
   const dispatch = useDispatch();
   const condicion = {
@@ -19,9 +18,6 @@ function Navbar() {
     justifyContent: "space-between",
     padding: "1rem",
   };
-
-  console.log("userRX from navbar", userRX);
-  console.log("user from navbar", user);
 
   //log out
   function handleLogout(e) {
@@ -67,12 +63,12 @@ function Navbar() {
                   <Link to={"/properties"}> Ver Propiedades</Link>
                   <Link to={"/appointments"}> Ver Citas </Link>
                   <Link to={"/properties/register"}>Agregar propiedades</Link>
-                  <Link to={`/users/${user.id}`}> Mi perfil</Link>
+                  <Link to={`/users/${uid}`}> Mi perfil</Link>
                   <Link onClick={handleLogout}> Salir</Link>
                 </>
               ) : (
                 <>
-                  <Link to={`/users/${user.id}`}> Mi perfil </Link>
+                  <Link to={`/users/${uid}`}> Mi perfil </Link>
                   <Link onClick={handleLogout}> Salir </Link>
                 </>
               )}

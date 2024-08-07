@@ -10,9 +10,8 @@ import { setUser } from "../state/userState";
 
 function User() {
   const userRX = useSelector((state) => state.user); //obtiene desde la global store
-  // const userLS = JSON.parse(localStorage.getItem("user")); //obtiene desde el local storage
-  // const user = userRX.id ? userRX : userLS; //obtiene user de acuerdo a cual este disponible
-  const user = userRX;
+  const userLS = JSON.parse(localStorage.getItem("user")); //obtiene desde el local storage
+  const user = userRX.id ? userRX : userLS; //obtiene user de acuerdo a cual este disponible
   const uid = user.id;
   const [name, setName] = useState(userRX.name);
   const [email, setEmail] = useState(userRX.email);
@@ -23,9 +22,6 @@ function User() {
   const [window, setWindow] = useState(false);
   const [appo, setAppo] = useState(false);
   const dispatch = useDispatch();
-
-  console.log("userRX from user", userRX);
-  console.log("user from user", user);
 
   //mod user
   const handleConfirm = () => {
@@ -68,7 +64,7 @@ function User() {
       })
       .then((res) => setFavoritos(res.data))
       .catch((err) => console.log(err));
-  }, [estado, user]);
+  }, [estado, uid]);
 
   //get citas
   useEffect(() => {
