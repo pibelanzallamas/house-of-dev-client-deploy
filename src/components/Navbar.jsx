@@ -20,7 +20,8 @@ function Navbar() {
     padding: "1rem",
   };
 
-  console.log("just userfromRX in nav", userRX);
+  console.log("userRX from navbar", userRX);
+  console.log("user from navbar", user);
 
   //log out
   function handleLogout(e) {

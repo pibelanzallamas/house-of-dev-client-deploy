@@ -17,8 +17,15 @@ function AppRoutes() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("user"));
-    dispatch(setUser(data));
+    async function repartingData() {
+      try {
+        const data = await JSON.parse(localStorage.getItem("user"));
+        await dispatch(setUser(data));
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    repartingData();
   }, [dispatch]);
 
   return (
