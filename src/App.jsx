@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AppRoutes from "./components/AppRoutes";
 import { Analytics } from "@vercel/analytics/react";
 import "./styles/App.css";
