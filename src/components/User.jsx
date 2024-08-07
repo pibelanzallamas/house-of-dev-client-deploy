@@ -9,7 +9,10 @@ import UserModals from "../modals/UserModals";
 import { setUser } from "../state/userState";
 
 function User() {
-  const user = useSelector((state) => state.user);
+  const userRX = useSelector((state) => state.user); //obtiene desde la global store
+  // const userLS = JSON.parse(localStorage.getItem("user")); //obtiene desde el local storage
+  // const user = userRX.id ? userRX : userLS; //obtiene user de acuerdo a cual este disponible
+  const user = userRx;
   const uid = user.id;
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
@@ -20,6 +23,8 @@ function User() {
   const [window, setWindow] = useState(false);
   const [appo, setAppo] = useState(false);
   const dispatch = useDispatch();
+
+  console.log("userRX, in User", userRX);
 
   //mod user
   const handleConfirm = () => {
