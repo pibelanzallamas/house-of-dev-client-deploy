@@ -1,29 +1,24 @@
 House of Dev
 
-![image](https://brandon-portfolio-phi.vercel.app/projects-img/hod/hod-home-image.png)
+![image](https://res.cloudinary.com/daynclfo8/image/upload/v1730124604/hod_vkfoxj.png)
 
-// Español
+[Demo](https://www.youtube.com/watch?v=LiaV7xHjJmk)
 
-Entrar al sitio web, y registrarse con mail y contraseña (no hace falta confirmar mail).
-Para ver el modo admin, mirar la demo.
+[Back-End](https://github.com/pibelanzallamas/house-of-dev-server-deploy)
 
-Demo: https://youtu.be/uYUc50qGQXY?si=bQEcHKcf_ZWnY_dh
+_**Español**_
+
+Entrar al sitio web, y registrarse con mail y contraseña. Para ver el modo admin, mirar la demo.
 
 Usar mail verdadero para recibir mail de confirmación/cancelación.
 
-Back-End: https://github.com/pibelanzallamas/house-of-dev-server-deploy
-
 Muchas gracias.
 
-// English
+_**English**_
 
-Enter the website and register with email and password (no need to confirm email). To see the admin mode, watch the demo.
-
-Demo: https://youtu.be/uYUc50qGQXY?si=bQEcHKcf_ZWnY_dh
+Enter the website and register with email and password. To see the admin mode, watch the demo.
 
 Use a real email to receive confirmation/cancellation emails.
-
-Back-End: https://github.com/pibelanzallamas/house-of-dev-server-deploy
 
 Thank you.
 
