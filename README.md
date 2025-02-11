@@ -1,6 +1,6 @@
 House of Dev
 
-![image](https://res.cloudinary.com/daynclfo8/image/upload/v1730124604/hod_vkfoxj.png)
+![image](https://res.cloudinary.com/daynclfo8/image/upload/v1732568386/house.png)
 
 [Demo](https://www.youtube.com/watch?v=LiaV7xHjJmk)
 
