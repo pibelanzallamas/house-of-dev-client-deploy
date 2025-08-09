@@ -78,6 +78,7 @@ function Login() {
 
           <button className="buttonLogin">Entrar</button>
         </form>
+        <p>Hecho con ❤️ por Brandon 🏰</p>
       </div>
     </div>
   );
