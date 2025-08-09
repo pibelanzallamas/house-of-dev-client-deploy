@@ -120,6 +120,7 @@ function Register() {
 
           <button className="buttonRegister"> Registrarse</button>
         </form>
+        <p>Hecho con ❤️ por Brandon 🏰</p>
       </div>
     </div>
   );
