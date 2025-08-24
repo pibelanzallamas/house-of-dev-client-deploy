@@ -1,4 +1,3 @@
-import React from "react";
 import useInput from "../hooks/useInput";
 import houseLogo from "../assets/House.svg";
 import ofDevLogo from "../assets/ofDev.svg";
